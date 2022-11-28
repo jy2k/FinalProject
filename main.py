@@ -50,18 +50,16 @@ if __name__ == '__main__':
 
     ###### Stock file ######
 
-    df_stock = pandas.read_csv(str(file_2 + '.csv'), index_col=0)
-    df_stock = df_stock.T
+    df = pandas.read_csv(str(file_2 + '.csv'))
 
-    for val in df_stock.columns:
-        if (val != 'Date'):
-            new_format = datetime.strptime(val, full_month_format_file_2)
-            df_stock = df_stock.rename(columns={val: new_format})
+    df.loc[:, 'Date'] = pandas.to_datetime(df['Date'])
+    df.set_index('Date', inplace=True)
+    df_resampled = df.resample('SMS').first()
+    df_resampled['day_of_month'] = df_resampled.index.day
+    df_stock_filtered_final = df_resampled[df_resampled.day_of_month.eq(15)]
 
-    df_stock = df_stock.T
-    df_stock = df_stock[df_stock.index.day.isin([15])]
-
-    df_cohort_stock = pandas.merge(df_cohort, df_stock, left_index=True, right_index=True, how='outer')
+    df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
+    df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
 
     print('end')
 
