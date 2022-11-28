@@ -57,7 +57,8 @@ if __name__ == '__main__':
     print(df2.index.name)
 
     result = df2.join(test)
-    #inner_merged_total = pandas.merge(df2, test, left_on="None", right_on="Date")
+    result = pandas.merge(df2, test, left_index=True, right_index=True, how='outer')
+
     print('end')
 
 
