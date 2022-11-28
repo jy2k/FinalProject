@@ -6,6 +6,7 @@ from datetime import datetime
 
 file_name = "AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo"
 full_month_format = "%b %d, %Y"
+list_of_params = ['Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
 
 if __name__ == '__main__':
 
@@ -22,23 +23,25 @@ if __name__ == '__main__':
             df = df.rename(columns={val: new_format})
 
     #select specific columns
-    test= df.loc[['1mo CPR','Life CPR']]
-
-    df2 = test.T
+    test= df.loc[list_of_params]
+    test2 = test[~test.index.duplicated(keep='first')]
+    df2 = test2.T
     df2 = df2.drop("Unnamed: 1")
-    df2['1mo CPR'] = df2['1mo CPR'].replace(['-'], '0.0')
-    df2['1mo CPR'] = df2['1mo CPR'].astype(float)
-    df2['Life CPR'] = df2['Life CPR'].replace(['-'], '0.0')
-    df2['Life CPR'] = df2['Life CPR'].astype(float)
 
-    df2['spread'] = df2['1mo CPR']-df2['Life CPR']
-    #df2.set_index(df.columns[0])
+    for param in list_of_params:
+        df2[param] = df2[param].replace(['-'], '0.0')
+        df2[param] = df2[param].str.replace(',', '')
+        df2[param] = df2[param].astype(float)
+
+    df2['Gross Coupon - Accum Net Loss%'] = df2['Gross Coupon'] - df2['Accum Net Loss%']
+    df2['Num Assets in Delinq 30+ Days / Number of Assets'] = df2['Delinq 30+'] / df2['Number of Assets']
+
     df2.to_csv(str(file_name+'_reformatted.csv'))
 
     ###### Stock file ######
     file_name = "AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo" + '_reformatted.csv'
     file_name_stock = "AFRM"
-    # merge the 2 files on the date column
+
     df3 = pandas.read_csv(str(file_name_stock + '.csv'), index_col=0)
     df3 = df3.T
 
@@ -56,7 +59,6 @@ if __name__ == '__main__':
     print(test.index.name)
     print(df2.index.name)
 
-    result = df2.join(test)
     result = pandas.merge(df2, test, left_index=True, right_index=True, how='outer')
 
     print('end')
