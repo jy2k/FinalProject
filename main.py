@@ -1,6 +1,3 @@
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
 import pandas
 from datetime import datetime
 
@@ -62,6 +59,7 @@ if __name__ == '__main__':
             df_stock = df_stock.rename(columns={val: new_format})
 
     df_stock = df_stock.T
+    df_stock = df_stock[df_stock.index.day.isin([15])]
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock, left_index=True, right_index=True, how='outer')
 
