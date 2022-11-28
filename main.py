@@ -14,10 +14,11 @@ if __name__ == '__main__':
 
     for val in df.columns:
         if(val != 'Unnamed: 1'):
-            interim = datetime.strptime(val, full_month_format)
-            month = str(interim.month)
-            year = str(interim.year)
-            new_format = str(year + '.' + month)
+            new_format = datetime.strptime(val, full_month_format)
+            #interim = datetime.strptime(val, full_month_format)
+            #month = str(interim.month)
+            #year = str(interim.year)
+            #new_format = str(month + '/' + year)
             df = df.rename(columns={val: new_format})
 
     #select specific columns
@@ -45,10 +46,11 @@ if __name__ == '__main__':
 
     for val in df3.columns:
         if (val != 'Date'):
-            interim = datetime.strptime(val, full_month_format)
-            month = str(interim.month)
-            year = str(interim.year)
-            new_format = str(year + '.' + month)
+            new_format = datetime.strptime(val, full_month_format)
+            #interim = datetime.strptime(val, full_month_format)
+            #month = str(interim.month)
+            #year = str(interim.year)
+            #new_format = str(month + '/' + year)
             df3 = df3.rename(columns={val: new_format})
     test = df3.T
     print(test.index.name)
