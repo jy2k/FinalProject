@@ -9,6 +9,9 @@ full_month_format_file_1 = "%b %d, %Y"
 file_2 = "AFRM"
 full_month_format_file_2 = "%Y-%m-%d"
 
+file_3 = "Finsight data - Affirm_edited"
+full_month_format_file_3 = "%B %d, %Y"
+
 list_of_params = ['Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
 
 
