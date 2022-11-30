@@ -13,7 +13,7 @@ file_3 = "Finsight data - Affirm_edited"
 full_month_format_file_3 = "%B %d, %Y"
 
 list_of_params = ['Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
-
+columns_names = ['Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Life_CPR','Gross_Coupon_Accum_Net_Loss_precent','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
 
 ###### Functions ######
 
@@ -63,7 +63,12 @@ if __name__ == '__main__':
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
     df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
+    df_cohort_stock.columns
 
+    df_cohort_stock.columns = columns_names
+    df_cohort_stock.index.name = 'Date'
+    df_cohort_stock['series'] = 1
+    df_cohort_stock.to_csv('final.csv')
     print('end')
 
 
