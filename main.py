@@ -15,7 +15,19 @@ full_month_format_file_3 = "%B %d, %Y"
 list_of_params = ['Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
 columns_names = ['Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Life_CPR','Gross_Coupon_Accum_Net_Loss_precent','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
 
+list_of_affirm_cohort = ['cohort/Affirm/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
+                         'cohort/Affirm/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
+                         'cohort/Affirm/21-1/AFRM21A_20221011.xlsx - AFRM21A-HistInfo.csv']
 ###### Functions ######
+
+def concat_csvs(list_csvs):
+    df_full = pandas.DataFrame()
+
+    for csv in list_csvs:
+        current = pandas.read_csv(csv)
+        df_full = df_full.append(current)
+
+    return df_full
 
 def bucketize_date(val, full_month_format):
     interim = datetime.strptime(val, full_month_format)
@@ -25,7 +37,7 @@ def bucketize_date(val, full_month_format):
     return new_format
 
 if __name__ == '__main__':
-
+    df_cohort = concat_csvs(list_of_affirm_cohort)
     ###### Cohort file ######
     df_cohort = pandas.read_csv(str(file_1+'.csv'), index_col=0)
     df_cohort.index.astype(str, copy=False)
