@@ -68,7 +68,11 @@ if __name__ == '__main__':
     df_cohort_stock.columns = columns_names
     df_cohort_stock.index.name = 'Date'
     df_cohort_stock['series'] = 1
+
+    df_cohort_stock = df_cohort_stock.dropna()
+
     df_cohort_stock.to_csv('final.csv')
+
     print('end')
 
 
