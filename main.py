@@ -6,14 +6,14 @@ from datetime import datetime
 file_1 = "AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo"
 full_month_format_file_1 = "%b %y"
 
-file_2 = "stocks/LC"
+file_2 = "stocks/SOFI"
 full_month_format_file_2 = "%Y-%m-%d"
 
 file_3 = "Finsight data - Affirm_edited"
-full_month_format_file_3 = "%B %d, %Y"
+full_month_format_file_3 = "%b %d, %Y"
 
-list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
-columns_names = ['Deal','Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Life_CPR','Gross_Coupon_Accum_Net_Loss_precent','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
+list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
+columns_names = ['Deal','Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Gross_Coupon_Accum_Net_Loss_precent','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
 
 list_of_affirm_cohort = ['cohort/Affirm/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
                          'cohort/Affirm/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
@@ -22,6 +22,14 @@ list_of_affirm_cohort = ['cohort/Affirm/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-H
 list_of_lendingclub_cohort = ['cohort/LendingClub/19-1/LCR191_20220928.xlsx - LCR191-CStats.csv',
                          'cohort/LendingClub/20-1/LCR201_20220928(2).xlsx - LCR201-CStats.csv',
                          'cohort/LendingClub/21-1/LCLC21N1_20220928.xlsx - LCLC21N1-CStats.csv']
+
+list_of_oportun_cohort = ['cohort/Oportun/19-1/OPF1319A_20221011.xlsx - OPF1319A-HistInfo.csv',
+                         'cohort/Oportun/20-1/OPF2001_20221011.xlsx - OPF2001-HistInfo.csv',
+                         'cohort/Oportun/21-1/OPF21A_20221011.xlsx - OPF21A-HistInfo.csv']
+
+list_of_sofi_cohort = ['cohort/SoFi/19-4/SFLP1904_20221011.xlsx - SFLP1904-HistInfo.csv',
+                         'cohort/SoFi/20-1/SFLP2001_20221011.xlsx - SFLP2001-HistInfo.csv',
+                         'cohort/SoFi/21-1/SFLP2101_20221011.xlsx - SFLP2101-HistInfo.csv']
 ###### Functions ######
 
 def concat_csvs(list_csvs):
@@ -43,7 +51,7 @@ def bucketize_date(val, full_month_format):
 if __name__ == '__main__':
 
     ###### Cohort file ######
-    df_cohort = pandas.read_csv(list_of_lendingclub_cohort[2], index_col=0)
+    df_cohort = pandas.read_csv(list_of_sofi_cohort[0], index_col=0)
 
     df_cohort.index.astype(str, copy=False)
     deal = df_cohort.loc['WALA','Graph']
@@ -51,7 +59,7 @@ if __name__ == '__main__':
     print(deal)
     for val in df_cohort.columns:
         if(val != 'Unnamed: 1' and val !='Graph' and val !='Prepay Group'):
-            new_format = datetime.strptime(val, full_month_format_file_1)
+            new_format = datetime.strptime(val, full_month_format_file_3)
             df_cohort = df_cohort.rename(columns={val: new_format})
 
     #select specific columns
@@ -89,12 +97,12 @@ if __name__ == '__main__':
 
     df.loc[:, 'Date'] = pandas.to_datetime(df['Date'])
     df.set_index('Date', inplace=True)
-    df_stock_filtered_final = df.resample('SMS').first()
-    #df_resampled['day_of_month'] = df_resampled.index.day
-    #df_stock_filtered_final = df_resampled[df_resampled.day_of_month.eq(15)]
+    df_resampled = df.resample('D')
+    df_resampled['day_of_month'] = df_resampled.index.day
+    df_stock_filtered_final = df_resampled[df_resampled.day_of_month.eq(25)]
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
-    #df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
+    df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
     df_cohort_stock.columns
 
     df_cohort_stock.columns = columns_names
@@ -103,7 +111,7 @@ if __name__ == '__main__':
 
     df_cohort_stock = df_cohort_stock.dropna()
 
-    df_cohort_stock.to_csv('file3.csv')
+    df_cohort_stock.to_csv('file1.csv')
 
     print('end')
 
