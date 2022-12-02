@@ -4,7 +4,7 @@ from datetime import datetime
 ###### Params ######
 
 file_1 = "AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo"
-full_month_format_file_1 = "%b %d, %Y"
+full_month_format_file_1 = "%b %y"
 
 file_2 = "stocks/LC"
 full_month_format_file_2 = "%Y-%m-%d"
@@ -12,8 +12,8 @@ full_month_format_file_2 = "%Y-%m-%d"
 file_3 = "Finsight data - Affirm_edited"
 full_month_format_file_3 = "%B %d, %Y"
 
-list_of_params = ['1mo CPR','Gross Coupon', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', ]
-columns_names = ['Deal','Gross_Coupon','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
+list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
+columns_names = ['Deal','Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_Loss_Rate','Delinq_30','Number_of_Assets','Life_CDR','Life_CPR','Gross_Coupon_Accum_Net_Loss_precent','Num_Assets_in_Delinq_30_Days_Number_of_Assets','Open','High','Low','Close','Adj_Close','Volume']
 
 list_of_affirm_cohort = ['cohort/Affirm/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
                          'cohort/Affirm/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
@@ -43,14 +43,14 @@ def bucketize_date(val, full_month_format):
 if __name__ == '__main__':
 
     ###### Cohort file ######
-    df_cohort = pandas.read_csv(list_of_affirm_cohort[2], index_col=0)
+    df_cohort = pandas.read_csv(list_of_lendingclub_cohort[2], index_col=0)
 
     df_cohort.index.astype(str, copy=False)
     deal = df_cohort.loc['WALA','Graph']
 
     print(deal)
     for val in df_cohort.columns:
-        if(val != 'Unnamed: 1' and val !='Graph'):
+        if(val != 'Unnamed: 1' and val !='Graph' and val !='Prepay Group'):
             new_format = datetime.strptime(val, full_month_format_file_1)
             df_cohort = df_cohort.rename(columns={val: new_format})
 
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     df_cohort['1mo CPR'] = df_cohort['1mo CPR'].astype("string")
     df_cohort['1mo CPR'] = deal
 
-   #df_cohort['Gross Coupon - Accum Net Loss%'] = df_cohort['Gross Coupon'] - df_cohort['Accum Net Loss%']
+    df_cohort['Gross Coupon - Accum Net Loss%'] = df_cohort['Gross Coupon'] - df_cohort['Accum Net Loss%']
     df_cohort['Num Assets in Delinq 30+ Days / Number of Assets'] = df_cohort['Delinq 30+'] / df_cohort['Number of Assets']
 
     #df_cohort.to_csv(str(file_1+'_reformatted.csv'))
@@ -89,12 +89,12 @@ if __name__ == '__main__':
 
     df.loc[:, 'Date'] = pandas.to_datetime(df['Date'])
     df.set_index('Date', inplace=True)
-    df_resampled = df.resample('SMS').first()
-    df_resampled['day_of_month'] = df_resampled.index.day
-    df_stock_filtered_final = df_resampled[df_resampled.day_of_month.eq(15)]
+    df_stock_filtered_final = df.resample('SMS').first()
+    #df_resampled['day_of_month'] = df_resampled.index.day
+    #df_stock_filtered_final = df_resampled[df_resampled.day_of_month.eq(15)]
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
-    df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
+    #df_cohort_stock.drop('day_of_month', axis=1, inplace=True)
     df_cohort_stock.columns
 
     df_cohort_stock.columns = columns_names
