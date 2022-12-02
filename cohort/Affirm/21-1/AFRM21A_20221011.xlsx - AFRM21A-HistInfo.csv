@@ -1,228 +1,191 @@
-Affirm Asset Securitization Trust 2021-A,,,,,,
-Deal Name:,,,AFRM21A,,,
-Deal Category:,,,Consumer Loan: Marketplace:  Personal Loans,,,
-Collateral Detail (Aggregated Loan Level) as of,,,Pricing,,,
-Closing Date,,,"February 18, 2021",,,
-Historical Info report created,,,"October 11, 2022",,,
-,,,,,,
 ,Graph,"Sep 15, 2022","Aug 15, 2022","Jul 15, 2022","Jun 15, 2022","May 15, 2022"
-Deal AFRM21A,,,,,,
-Current Deal Balance, ,"381,056,286.12","492,709,347.05","500,000,000.00","500,000,000.00","500,000,000.00"
-Current Collat Balance, ,"393,005,718.18","505,545,120.53","498,187,517.96","501,015,902.68","495,620,656.50"
-WALA, ,4.000000000,4.000000000,4.000000000,4.000000000,4.000000000
-Gross Coupon, ,21.3915,20.9332,21.2631,21.6265,21.5237
-Gross Coupon (Derived), ,21.3915,20.9332,21.2631,21.6265,21.5237
-WAVG Amort Term, ,7,7,7,7,8
-WAVG Rem Term, ,11,12,12,12,12
-Number of Assets, ,"1,407,459","1,639,843","1,548,652","1,516,429","1,458,668"
-Reported 1mo CPR (%), ,50.38,62.49,60.22,61.17,63.78
-1mo CPR, ,34.66,37.75,31.92,32.45,35.44
-3mo CPR, ,34.82,34.09,33.29,41.41,44.16
-6mo CPR, ,38.20,39.33,37.96,38.78,38.29
-12mo CPR, ,36.80,37.01,37.67,38.09,39.04
-1mo CRR, ,28.18,32.44,26.32,26.82,30.62
-3mo CRR, ,29.03,28.58,27.94,36.61,39.77
-6mo CRR, ,32.92,34.41,32.93,33.84,33.49
-12mo CRR, ,31.88,32.42,33.45,34.24,35.67
-1mo CDR, ,8.78,7.61,7.41,7.51,6.76
-3mo CDR, ,7.94,7.51,7.23,7.31,7.00
-6mo CDR, ,7.62,7.26,7.27,7.22,7.00
-12mo CDR, ,7.01,6.58,6.14,5.66,5.06
-Life CDR, ,4.89,4.67,4.50,4.31,4.09
-Delinq 30-59, ,1.91,1.49,1.31,1.24,1.00
-Delinq 60-89, ,1.52,1.04,0.97,0.80,0.84
-Delinq 90-119, ,1.23,0.84,0.73,0.76,0.75
-Delinq 30+, ,4.69,3.40,3.02,2.80,2.59
-Delinq 60+, ,2.78,1.90,1.71,1.56,1.58
-Delinq 90+, ,1.26,0.87,0.75,0.76,0.75
-Delinq 120+, ,0.03,0.02,0.02,0.01,0.00
-Annualized Net Loss Rate, ,8.51,7.78,7.04,4.00,-
-1mo Severity, ,92.90,98.55,91.67,51.37,-
-3mo Severity, ,94.31,80.64,-,-,-
-Collected Interest, ,"8,312,301.34","8,658,480.67","8,914,850.23","8,591,124.79","9,067,506.89"
-Collected Principal, ,"102,455,606.05","107,359,538.36","101,929,700.53","100,756,267.36","103,866,934.21"
-Current Princ Liquidation, ,"3,858,812.13","3,275,837.65","3,205,123.06","3,212,340.92","2,938,271.85"
-Current Princ Recovery, ,"273,856.94","47,468.94","267,070.06","1,562,065.85",-
-Current Princ Loss, ,"3,584,955.19","3,228,368.71","2,938,053.00","1,650,275.07",-
-Current Repurchased Principal, ,"247,577.03","375,378.82","261,535.00","285,704.19","292,434.23"
-OC Target, ,"10,005,002.50","10,005,002.50","250,125.06","250,125.06","250,125.06"
-OC Deficiency, ,0.00,0.00,"-24,204,806.44","-11,013,919.52","-13,903,282.82"
-OC Actual, ,"10,005,002.50","10,005,002.50","24,454,931.50","11,264,044.58","14,153,407.88"
-Tranches,,,,,,
-Tranche A,,,,,,
-Original Balance, ,"407,200,000.00","407,200,000.00","407,200,000.00","407,200,000.00","407,200,000.00"
-Current Balance, ,"288,256,286.12","399,909,347.05","407,200,000.00","407,200,000.00","407,200,000.00"
-Factor, ,0.7079,0.9821,1.0000,1.0000,1.0000
-Coupon, ,0.8800,0.8800,0.8800,0.8800,0.8800
-Reported Coupon, ,0.8800,0.8800,0.8800,0.8800,0.8800
-Natural Credit Support, ,26.64,20.75,23.69,20.91,21.73
-Credit Support (%), ,26.64,20.75,23.69,20.91,21.73
-Credit Support, ,"104,227,291.34","104,383,271.57","117,490,710.85","104,258,591.55","107,125,917.55"
-Reported Principal Payment, ,"111,653,060.93","7,290,652.95",0.00,0.00,0.00
-Reported Interest Payment, ,"293,266.85","298,613.33","298,613.33","298,613.33","298,613.33"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,AA,AA,AA,AA,AA
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Tranche B,,,,,,
-Original Balance, ,"30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00"
-Current Balance, ,"30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00"
-Factor, ,1.0000,1.0000,1.0000,1.0000,1.0000
-Coupon, ,1.0600,1.0600,1.0600,1.0600,1.0600
-Reported Coupon, ,1.0600,1.0600,1.0600,1.0600,1.0600
-Natural Credit Support, ,18.90,14.73,17.59,14.84,15.59
-Credit Support (%), ,18.90,14.73,17.59,14.84,15.59
-Credit Support, ,"73,957,291.34","74,113,271.57","87,220,710.85","73,988,591.55","76,855,917.55"
-Reported Principal Payment, ,0.00,0.00,0.00,0.00,0.00
-Reported Interest Payment, ,"26,738.50","26,738.50","26,738.50","26,738.50","26,738.50"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,A,A,A,A,A
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Tranche C,,,,,,
-Original Balance, ,"21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00"
-Current Balance, ,"21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00"
-Factor, ,1.0000,1.0000,1.0000,1.0000,1.0000
-Coupon, ,1.6600,1.6600,1.6600,1.6600,1.6600
-Reported Coupon, ,1.6600,1.6600,1.6600,1.6600,1.6600
-Natural Credit Support, ,13.53,10.56,13.35,10.62,11.33
-Credit Support (%), ,13.53,10.56,13.35,10.62,11.33
-Credit Support, ,"52,947,291.34","53,103,271.57","66,210,710.85","52,978,591.55","55,845,917.55"
-Reported Principal Payment, ,0.00,0.00,0.00,0.00,0.00
-Reported Interest Payment, ,"29,063.83","29,063.83","29,063.83","29,063.83","29,063.83"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,BBB,BBB,BBB,BBB,BBB
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Tranche D,,,,,,
-Original Balance, ,"22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00"
-Current Balance, ,"22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00"
-Factor, ,1.0000,1.0000,1.0000,1.0000,1.0000
-Coupon, ,3.4900,3.4900,3.4900,3.4900,3.4900
-Reported Coupon, ,3.4900,3.4900,3.4900,3.4900,3.4900
-Natural Credit Support, ,7.78,6.08,8.81,6.11,6.76
-Credit Support (%), ,7.78,6.08,8.81,6.11,6.76
-Credit Support, ,"30,437,291.34","30,593,271.57","43,700,710.85","30,468,591.55","33,335,917.55"
-Reported Principal Payment, ,0.00,0.00,0.00,0.00,0.00
-Reported Interest Payment, ,"65,466.58","65,466.58","65,466.58","65,466.58","65,466.58"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,BB,BB,BB,BB,BB
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Tranche E,,,,,,
-Original Balance, ,"19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00"
-Current Balance, ,"19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00"
-Factor, ,1.0000,1.0000,1.0000,1.0000,1.0000
-Coupon, ,5.6500,5.6500,5.6500,5.6500,5.6500
-Reported Coupon, ,5.6500,5.6500,5.6500,5.6500,5.6500
-Natural Credit Support, ,2.92,2.30,4.98,2.30,2.91
-Credit Support (%), ,2.92,2.30,4.98,2.30,2.91
-Credit Support, ,"11,427,291.34","11,583,271.57","24,690,710.85","11,458,591.55","14,325,917.55"
-Reported Principal Payment, ,0.00,0.00,0.00,0.00,0.00
-Reported Interest Payment, ,"89,505.42","89,505.42","89,505.42","89,505.42","89,505.42"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,B,B,B,B,B
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Tranche CERT,,,,,,
-Original Balance, ,"505,635,955.09","505,635,955.09","505,635,955.09","505,635,955.09","505,635,955.09"
-Current Balance, ,"393,005,718.18","505,545,120.53","498,187,517.96","501,015,902.68","495,620,656.50"
-Factor, ,0.7773,0.9998,0.9853,0.9909,0.9802
-Coupon, ,0.0000,0.0000,0.0000,0.0000,0.0000
-Reported Coupon, ,0.0000,0.0000,0.0000,0.0000,0.0000
-Reported Interest Payment, ,"11,381,197.75","10,891,243.74",0.00,"6,000,000.00","8,000,000.00"
-Accum Writedown, ,0.00,0.00,0.00,0.00,0.00
-Accum Interest Shortfall, ,0.00,0.00,0.00,0.00,0.00
-Curr Ratings,,-,-,-,-,-
-Ratings Order,,DBRS,DBRS,DBRS,DBRS,DBRS
-Groups,,,,,,
-Group NONDISCOUNT,,,,,,
-Gross Coupon (Derived), ,26.1023,26.0821,26.1259,26.1518,26.1758
-WAVG Amort Term, ,11.059197569,12.000000000,12.000000000,12.000000000,11.828372009
-WAVG Rem Term, ,11.059197569,12.000000000,12.000000000,12.000000000,11.828372009
-Delinq 30-59, ,2.14,1.74,1.60,1.42,1.21
-Delinq 60-89, ,1.77,1.22,1.14,0.91,0.96
-Delinq 30+, ,5.31,3.98,3.58,3.17,3.01
-Delinq 60+, ,3.17,2.24,1.98,1.76,1.80
-Delinq 90+, ,1.40,1.02,0.84,0.85,0.84
-OC Target,,NA,NA,NA,NA,NA
-OC Deficiency,,NA,NA,NA,NA,NA
-OC Actual,,NA,NA,NA,NA,NA
-Group DISCOUNT,,,,,,
-Gross Coupon (Derived), ,0.2741,0.2491,0.2676,0.2880,0.2816
-WAVG Amort Term, ,10.055764218,12.000000000,12.000000000,12.000000000,11.758062121
-WAVG Rem Term, ,10.055764218,12.000000000,12.000000000,12.000000000,11.758062121
-Delinq 30-59, ,0.78,0.34,0.30,0.30,0.27
-Delinq 60-89, ,0.35,0.21,0.19,0.17,0.23
-Delinq 30+, ,1.38,0.69,0.63,0.68,0.66
-Delinq 60+, ,0.60,0.35,0.34,0.39,0.39
-Delinq 90+, ,0.25,0.14,0.14,0.22,0.16
-OC Target,,NA,NA,NA,NA,NA
-OC Deficiency,,NA,NA,NA,NA,NA
-OC Actual,,NA,NA,NA,NA,NA
-Group INITIAL,,,,,,
-Gross Coupon (Derived), ,21.3915,20.9332,21.2631,21.6265,21.5237
-WAVG Amort Term, ,10.876181921,12.000000000,12.000000000,12.000000000,11.815740089
-WAVG Rem Term, ,10.876181921,12.000000000,12.000000000,12.000000000,11.815740089
-Delinq 30-59, ,1.89,1.46,1.35,1.22,1.04
-Delinq 60-89, ,1.51,1.02,0.96,0.78,0.83
-Delinq 30+, ,4.59,3.33,3.02,2.74,2.59
-Delinq 60+, ,2.70,1.86,1.67,1.52,1.55
-Delinq 90+, ,1.19,0.84,0.71,0.74,0.72
-OC Target,,NA,NA,NA,NA,NA
-OC Deficiency,,NA,NA,NA,NA,NA
-OC Actual,,NA,NA,NA,NA,NA
-Group REINVEST,,,,,,
-Gross Coupon (Derived), ,0.0000,0.0000,0.0000,0.0000,0.0000
-OC Target,,NA,NA,NA,NA,NA
-OC Deficiency,,NA,NA,NA,NA,NA
-OC Actual,,NA,NA,NA,NA,NA
-Triggers/Tests,,,,,,
-Trigger OC Step Trigger,,,,,,
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Amortization Events,,,,,,
-Pass/Fail,,NA,PASS,PASS,PASS,PASS
-SubTrigger Reinvestment Delinquency Trigger,,,,,,
-Actual Value (%), ,0.956,0.792,0.752,0.728,0.728
-Limit Value (%), ,7.000,7.000,7.000,7.000,7.000
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Reinvestment Reserve Fund Balance Trigger,,,,,,
-Actual Value, ,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
-Limit Value, ,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Three-Month Default Ratio,,,,,,
-Actual Value (%), ,0.00,1.95,1.87,1.89,1.81
-Limit Value (%), ,4.00,4.00,4.00,4.00,4.00
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Reinvestment - Overcollaterlization Event,,,,,,
-Actual Value, ,0.00,"24,454,931.50","11,264,044.58","14,153,407.88","29,701,999.65"
-Limit Value, ,0.00,0.00,0.00,0.00,0.00
-Pass/Fail,,NA,PASS,PASS,PASS,PASS
-SubTrigger Reinvestment Delinquency Trigger,,,,,,
-Actual Value (%), ,0.956,0.792,0.752,0.728,0.728
-Limit Value (%), ,7.000,7.000,7.000,7.000,7.000
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Three-Month Default Ratio,,,,,,
-Actual Value (%), ,0.00,1.95,1.87,1.89,1.81
-Limit Value (%), ,4.00,4.00,4.00,4.00,4.00
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Reinvestment - Overcollaterlization Event,,,,,,
-Actual Value, ,0.00,"24,454,931.50","11,264,044.58","14,153,407.88","29,701,999.65"
-Limit Value, ,0.00,0.00,0.00,0.00,0.00
-Pass/Fail,,NA,PASS,PASS,PASS,PASS
-Trigger Event of Default Trigger,,,,,,
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger Event of Default (Most Senior Class),,,,,,
-Actual Value, ,0.00,0.00,0.00,0.00,0.00
-Limit Value, ,0.00,0.00,0.00,0.00,0.00
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-SubTrigger EOD Note Principal Shortfall,,,,,,
-Actual Value, ,0.00,0.00,0.00,0.00,0.00
-Limit Value, ,0.00,0.00,0.00,0.00,0.00
-Pass/Fail,,PASS,PASS,PASS,PASS,PASS
-Credits,,,,,,
-Credit Reserve Account,,,,,,
-Credit Balance, ,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
-Credit Balance Target, ,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
-Credit Collection Account,,,,,,
-Credit Balance, ,"-1,250,000.00","-1,250,000.00","27,535,903.09","11,559,173.68","19,980,302.79"
+Current Deal Balance,Deal AFRM21A,"381,056,286.12","492,709,347.05","500,000,000.00","500,000,000.00","500,000,000.00"
+Current Collat Balance,Deal AFRM21A,"393,005,718.18","505,545,120.53","498,187,517.96","501,015,902.68","495,620,656.50"
+WALA,Deal AFRM21A,4.000000000,4.000000000,4.000000000,4.000000000,4.000000000
+Gross Coupon,Deal AFRM21A,21.3915,20.9332,21.2631,21.6265,21.5237
+Gross Coupon (Derived),Deal AFRM21A,21.3915,20.9332,21.2631,21.6265,21.5237
+WAVG Amort Term,Deal AFRM21A,7,7,7,7,8
+WAVG Rem Term,Deal AFRM21A,11,12,12,12,12
+Number of Assets,Deal AFRM21A,"1,407,459","1,639,843","1,548,652","1,516,429","1,458,668"
+Reported 1mo CPR (%),Deal AFRM21A,50.38,62.49,60.22,61.17,63.78
+1mo CPR,Deal AFRM21A,34.66,37.75,31.92,32.45,35.44
+3mo CPR,Deal AFRM21A,34.82,34.09,33.29,41.41,44.16
+6mo CPR,Deal AFRM21A,38.20,39.33,37.96,38.78,38.29
+12mo CPR,Deal AFRM21A,36.80,37.01,37.67,38.09,39.04
+1mo CRR,Deal AFRM21A,28.18,32.44,26.32,26.82,30.62
+3mo CRR,Deal AFRM21A,29.03,28.58,27.94,36.61,39.77
+6mo CRR,Deal AFRM21A,32.92,34.41,32.93,33.84,33.49
+12mo CRR,Deal AFRM21A,31.88,32.42,33.45,34.24,35.67
+1mo CDR,Deal AFRM21A,8.78,7.61,7.41,7.51,6.76
+3mo CDR,Deal AFRM21A,7.94,7.51,7.23,7.31,7.00
+6mo CDR,Deal AFRM21A,7.62,7.26,7.27,7.22,7.00
+12mo CDR,Deal AFRM21A,7.01,6.58,6.14,5.66,5.06
+Life CDR,Deal AFRM21A,4.89,4.67,4.50,4.31,4.09
+Delinq 30-59,Deal AFRM21A,1.91,1.49,1.31,1.24,1.00
+Delinq 60-89,Deal AFRM21A,1.52,1.04,0.97,0.80,0.84
+Delinq 90-119,Deal AFRM21A,1.23,0.84,0.73,0.76,0.75
+Delinq 30+,Deal AFRM21A,4.69,3.40,3.02,2.80,2.59
+Delinq 60+,Deal AFRM21A,2.78,1.90,1.71,1.56,1.58
+Delinq 90+,Deal AFRM21A,1.26,0.87,0.75,0.76,0.75
+Delinq 120+,Deal AFRM21A,0.03,0.02,0.02,0.01,0.00
+Annualized Net Loss Rate,Deal AFRM21A,8.51,7.78,7.04,4.00,-
+1mo Severity,Deal AFRM21A,92.90,98.55,91.67,51.37,-
+3mo Severity,Deal AFRM21A,94.31,80.64,-,-,-
+Collected Interest,Deal AFRM21A,"8,312,301.34","8,658,480.67","8,914,850.23","8,591,124.79","9,067,506.89"
+Collected Principal,Deal AFRM21A,"102,455,606.05","107,359,538.36","101,929,700.53","100,756,267.36","103,866,934.21"
+Current Princ Liquidation,Deal AFRM21A,"3,858,812.13","3,275,837.65","3,205,123.06","3,212,340.92","2,938,271.85"
+Current Princ Recovery,Deal AFRM21A,"273,856.94","47,468.94","267,070.06","1,562,065.85",-
+Current Princ Loss,Deal AFRM21A,"3,584,955.19","3,228,368.71","2,938,053.00","1,650,275.07",-
+Current Repurchased Principal,Deal AFRM21A,"247,577.03","375,378.82","261,535.00","285,704.19","292,434.23"
+OC Target,Deal AFRM21A,"10,005,002.50","10,005,002.50","250,125.06","250,125.06","250,125.06"
+OC Deficiency,Deal AFRM21A,0.00,0.00,"-24,204,806.44","-11,013,919.52","-13,903,282.82"
+OC Actual,Deal AFRM21A,"10,005,002.50","10,005,002.50","24,454,931.50","11,264,044.58","14,153,407.88"
+Original Balance,Tranche A,"407,200,000.00","407,200,000.00","407,200,000.00","407,200,000.00","407,200,000.00"
+Current Balance,Tranche A,"288,256,286.12","399,909,347.05","407,200,000.00","407,200,000.00","407,200,000.00"
+Factor,Tranche A,0.7079,0.9821,1.0000,1.0000,1.0000
+Coupon,Tranche A,0.8800,0.8800,0.8800,0.8800,0.8800
+Reported Coupon,Tranche A,0.8800,0.8800,0.8800,0.8800,0.8800
+Natural Credit Support,Tranche A,26.64,20.75,23.69,20.91,21.73
+Credit Support (%),Tranche A,26.64,20.75,23.69,20.91,21.73
+Credit Support,Tranche A,"104,227,291.34","104,383,271.57","117,490,710.85","104,258,591.55","107,125,917.55"
+Reported Principal Payment,Tranche A,"111,653,060.93","7,290,652.95",0.00,0.00,0.00
+Reported Interest Payment,Tranche A,"293,266.85","298,613.33","298,613.33","298,613.33","298,613.33"
+Accum Writedown,Tranche A,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche A,0.00,0.00,0.00,0.00,0.00
+Curr Ratings,Tranche A,AA,AA,AA,AA,AA
+Ratings Order,Tranche A,DBRS,DBRS,DBRS,DBRS,DBRS
+Original Balance,Tranche B,"30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00"
+Current Balance,Tranche B,"30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00","30,270,000.00"
+Factor,Tranche B,1.0000,1.0000,1.0000,1.0000,1.0000
+Coupon,Tranche B,1.0600,1.0600,1.0600,1.0600,1.0600
+Reported Coupon,Tranche B,1.0600,1.0600,1.0600,1.0600,1.0600
+Natural Credit Support,Tranche B,18.90,14.73,17.59,14.84,15.59
+Credit Support (%),Tranche B,18.90,14.73,17.59,14.84,15.59
+Credit Support,Tranche B,"73,957,291.34","74,113,271.57","87,220,710.85","73,988,591.55","76,855,917.55"
+Reported Principal Payment,Tranche B,0.00,0.00,0.00,0.00,0.00
+Reported Interest Payment,Tranche B,"26,738.50","26,738.50","26,738.50","26,738.50","26,738.50"
+Accum Writedown,Tranche B,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche B,0.00,0.00,0.00,0.00,0.00
+Curr Ratings,Tranche B,A,A,A,A,A
+Ratings Order,Tranche B,DBRS,DBRS,DBRS,DBRS,DBRS
+Original Balance,Tranche C,"21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00"
+Current Balance,Tranche C,"21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00","21,010,000.00"
+Factor,Tranche C,1.0000,1.0000,1.0000,1.0000,1.0000
+Coupon,Tranche C,1.6600,1.6600,1.6600,1.6600,1.6600
+Reported Coupon,Tranche C,1.6600,1.6600,1.6600,1.6600,1.6600
+Natural Credit Support,Tranche C,13.53,10.56,13.35,10.62,11.33
+Credit Support (%),Tranche C,13.53,10.56,13.35,10.62,11.33
+Credit Support,Tranche C,"52,947,291.34","53,103,271.57","66,210,710.85","52,978,591.55","55,845,917.55"
+Reported Principal Payment,Tranche C,0.00,0.00,0.00,0.00,0.00
+Reported Interest Payment,Tranche C,"29,063.83","29,063.83","29,063.83","29,063.83","29,063.83"
+Accum Writedown,Tranche C,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche C,0.00,0.00,0.00,0.00,0.00
+Curr Ratings,Tranche C,BBB,BBB,BBB,BBB,BBB
+Ratings Order,Tranche C,DBRS,DBRS,DBRS,DBRS,DBRS
+Original Balance,Tranche D,"22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00"
+Current Balance,Tranche D,"22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00","22,510,000.00"
+Factor,Tranche D,1.0000,1.0000,1.0000,1.0000,1.0000
+Coupon,Tranche D,3.4900,3.4900,3.4900,3.4900,3.4900
+Reported Coupon,Tranche D,3.4900,3.4900,3.4900,3.4900,3.4900
+Natural Credit Support,Tranche D,7.78,6.08,8.81,6.11,6.76
+Credit Support (%),Tranche D,7.78,6.08,8.81,6.11,6.76
+Credit Support,Tranche D,"30,437,291.34","30,593,271.57","43,700,710.85","30,468,591.55","33,335,917.55"
+Reported Principal Payment,Tranche D,0.00,0.00,0.00,0.00,0.00
+Reported Interest Payment,Tranche D,"65,466.58","65,466.58","65,466.58","65,466.58","65,466.58"
+Accum Writedown,Tranche D,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche D,0.00,0.00,0.00,0.00,0.00
+Curr Ratings,Tranche D,BB,BB,BB,BB,BB
+Ratings Order,Tranche D,DBRS,DBRS,DBRS,DBRS,DBRS
+Original Balance,Tranche E,"19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00"
+Current Balance,Tranche E,"19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00","19,010,000.00"
+Factor,Tranche E,1.0000,1.0000,1.0000,1.0000,1.0000
+Coupon,Tranche E,5.6500,5.6500,5.6500,5.6500,5.6500
+Reported Coupon,Tranche E,5.6500,5.6500,5.6500,5.6500,5.6500
+Natural Credit Support,Tranche E,2.92,2.30,4.98,2.30,2.91
+Credit Support (%),Tranche E,2.92,2.30,4.98,2.30,2.91
+Credit Support,Tranche E,"11,427,291.34","11,583,271.57","24,690,710.85","11,458,591.55","14,325,917.55"
+Reported Principal Payment,Tranche E,0.00,0.00,0.00,0.00,0.00
+Reported Interest Payment,Tranche E,"89,505.42","89,505.42","89,505.42","89,505.42","89,505.42"
+Accum Writedown,Tranche E,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche E,0.00,0.00,0.00,0.00,0.00
+Curr Ratings,Tranche E,B,B,B,B,B
+Ratings Order,Tranche E,DBRS,DBRS,DBRS,DBRS,DBRS
+Original Balance,Tranche CERT,"505,635,955.09","505,635,955.09","505,635,955.09","505,635,955.09","505,635,955.09"
+Current Balance,Tranche CERT,"393,005,718.18","505,545,120.53","498,187,517.96","501,015,902.68","495,620,656.50"
+Factor,Tranche CERT,0.7773,0.9998,0.9853,0.9909,0.9802
+Coupon,Tranche CERT,0.0000,0.0000,0.0000,0.0000,0.0000
+Reported Coupon,Tranche CERT,0.0000,0.0000,0.0000,0.0000,0.0000
+Reported Interest Payment,Tranche CERT,"11,381,197.75","10,891,243.74",0.00,"6,000,000.00","8,000,000.00"
+Accum Writedown,Tranche CERT,0.00,0.00,0.00,0.00,0.00
+Accum Interest Shortfall,Tranche CERT,0.00,0.00,0.00,0.00,0.00
+Ratings Order,Ratings Order,DBRS,DBRS,DBRS,DBRS,DBRS
+Gross Coupon (Derived),Group NONDISCOUNT,26.1023,26.0821,26.1259,26.1518,26.1758
+WAVG Amort Term,Group NONDISCOUNT,11.059197569,12.000000000,12.000000000,12.000000000,11.828372009
+WAVG Rem Term,Group NONDISCOUNT,11.059197569,12.000000000,12.000000000,12.000000000,11.828372009
+Delinq 30-59,Group NONDISCOUNT,2.14,1.74,1.60,1.42,1.21
+Delinq 60-89,Group NONDISCOUNT,1.77,1.22,1.14,0.91,0.96
+Delinq 30+,Group NONDISCOUNT,5.31,3.98,3.58,3.17,3.01
+Delinq 60+,Group NONDISCOUNT,3.17,2.24,1.98,1.76,1.80
+Delinq 90+,Group NONDISCOUNT,1.40,1.02,0.84,0.85,0.84
+OC Target,Group NONDISCOUNT,NA,NA,NA,NA,NA
+OC Deficiency,Group NONDISCOUNT,NA,NA,NA,NA,NA
+OC Actual,Group NONDISCOUNT,NA,NA,NA,NA,NA
+Gross Coupon (Derived),Group DISCOUNT,0.2741,0.2491,0.2676,0.2880,0.2816
+WAVG Amort Term,Group DISCOUNT,10.055764218,12.000000000,12.000000000,12.000000000,11.758062121
+WAVG Rem Term,Group DISCOUNT,10.055764218,12.000000000,12.000000000,12.000000000,11.758062121
+Delinq 30-59,Group DISCOUNT,0.78,0.34,0.30,0.30,0.27
+Delinq 60-89,Group DISCOUNT,0.35,0.21,0.19,0.17,0.23
+Delinq 30+,Group DISCOUNT,1.38,0.69,0.63,0.68,0.66
+Delinq 60+,Group DISCOUNT,0.60,0.35,0.34,0.39,0.39
+Delinq 90+,Group DISCOUNT,0.25,0.14,0.14,0.22,0.16
+OC Target,Group DISCOUNT,NA,NA,NA,NA,NA
+OC Deficiency,Group DISCOUNT,NA,NA,NA,NA,NA
+OC Actual,Group DISCOUNT,NA,NA,NA,NA,NA
+Gross Coupon (Derived),Group INITIAL,21.3915,20.9332,21.2631,21.6265,21.5237
+WAVG Amort Term,Group INITIAL,10.876181921,12.000000000,12.000000000,12.000000000,11.815740089
+WAVG Rem Term,Group INITIAL,10.876181921,12.000000000,12.000000000,12.000000000,11.815740089
+Delinq 30-59,Group INITIAL,1.89,1.46,1.35,1.22,1.04
+Delinq 60-89,Group INITIAL,1.51,1.02,0.96,0.78,0.83
+Delinq 30+,Group INITIAL,4.59,3.33,3.02,2.74,2.59
+Delinq 60+,Group INITIAL,2.70,1.86,1.67,1.52,1.55
+Delinq 90+,Group INITIAL,1.19,0.84,0.71,0.74,0.72
+OC Target,Group INITIAL,NA,NA,NA,NA,NA
+OC Deficiency,Group INITIAL,NA,NA,NA,NA,NA
+OC Actual,Group INITIAL,NA,NA,NA,NA,NA
+Gross Coupon (Derived),Group REINVEST,0.0000,0.0000,0.0000,0.0000,0.0000
+OC Target,Group REINVEST,NA,NA,NA,NA,NA
+OC Deficiency,Group REINVEST,NA,NA,NA,NA,NA
+OC Actual,Group REINVEST,NA,NA,NA,NA,NA
+Pass/Fail,Trigger OC Step Trigger,PASS,PASS,PASS,PASS,PASS
+Pass/Fail,SubTrigger Amortization Events,NA,PASS,PASS,PASS,PASS
+Actual Value (%),SubTrigger Reinvestment Delinquency Trigger,0.956,0.792,0.752,0.728,0.728
+Limit Value (%),SubTrigger Reinvestment Delinquency Trigger,7.000,7.000,7.000,7.000,7.000
+Pass/Fail,SubTrigger Reinvestment Delinquency Trigger,PASS,PASS,PASS,PASS,PASS
+Actual Value,SubTrigger Reinvestment Reserve Fund Balance Trigger,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
+Limit Value,SubTrigger Reinvestment Reserve Fund Balance Trigger,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
+Pass/Fail,SubTrigger Reinvestment Reserve Fund Balance Trigger,PASS,PASS,PASS,PASS,PASS
+Actual Value (%),SubTrigger Three-Month Default Ratio,0.00,1.95,1.87,1.89,1.81
+Limit Value (%),SubTrigger Three-Month Default Ratio,4.00,4.00,4.00,4.00,4.00
+Pass/Fail,SubTrigger Three-Month Default Ratio,PASS,PASS,PASS,PASS,PASS
+Actual Value,SubTrigger Reinvestment - Overcollaterlization Event,0.00,"24,454,931.50","11,264,044.58","14,153,407.88","29,701,999.65"
+Limit Value,SubTrigger Reinvestment - Overcollaterlization Event,0.00,0.00,0.00,0.00,0.00
+Pass/Fail,SubTrigger Reinvestment - Overcollaterlization Event,NA,PASS,PASS,PASS,PASS
+Actual Value (%),SubTrigger Reinvestment Delinquency Trigger,0.956,0.792,0.752,0.728,0.728
+Limit Value (%),SubTrigger Reinvestment Delinquency Trigger,7.000,7.000,7.000,7.000,7.000
+Pass/Fail,SubTrigger Reinvestment Delinquency Trigger,PASS,PASS,PASS,PASS,PASS
+Actual Value (%),SubTrigger Three-Month Default Ratio,0.00,1.95,1.87,1.89,1.81
+Limit Value (%),SubTrigger Three-Month Default Ratio,4.00,4.00,4.00,4.00,4.00
+Pass/Fail,SubTrigger Three-Month Default Ratio,PASS,PASS,PASS,PASS,PASS
+Actual Value,SubTrigger Reinvestment - Overcollaterlization Event,0.00,"24,454,931.50","11,264,044.58","14,153,407.88","29,701,999.65"
+Limit Value,SubTrigger Reinvestment - Overcollaterlization Event,0.00,0.00,0.00,0.00,0.00
+Pass/Fail,SubTrigger Reinvestment - Overcollaterlization Event,NA,PASS,PASS,PASS,PASS
+Pass/Fail,Trigger Event of Default Trigger,PASS,PASS,PASS,PASS,PASS
+Actual Value,SubTrigger Event of Default (Most Senior Class),0.00,0.00,0.00,0.00,0.00
+Limit Value,SubTrigger Event of Default (Most Senior Class),0.00,0.00,0.00,0.00,0.00
+Pass/Fail,SubTrigger Event of Default (Most Senior Class),PASS,PASS,PASS,PASS,PASS
+Actual Value,SubTrigger EOD Note Principal Shortfall,0.00,0.00,0.00,0.00,0.00
+Limit Value,SubTrigger EOD Note Principal Shortfall,0.00,0.00,0.00,0.00,0.00
+Pass/Fail,SubTrigger EOD Note Principal Shortfall,PASS,PASS,PASS,PASS,PASS
+Credit Balance,Credit Reserve Account,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
+Credit Balance Target,Credit Reserve Account,"1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00","1,250,000.00"
+Credit Balance,Credit Collection Account,"-1,250,000.00","-1,250,000.00","27,535,903.09","11,559,173.68","19,980,302.79"
