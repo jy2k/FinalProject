@@ -6,7 +6,7 @@ from datetime import datetime
 file_1 = "AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo"
 full_month_format_file_1 = "%b %d, %Y"
 
-file_2 = "stocks/AFRM"
+file_2 = "stocks/LC"
 full_month_format_file_2 = "%Y-%m-%d"
 
 file_3 = "Finsight data - Affirm_edited"
@@ -18,6 +18,10 @@ columns_names = ['Deal','Gross_Coupon','Accum_Net_Loss_precent','Annualized_Net_
 list_of_affirm_cohort = ['cohort/Affirm/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
                          'cohort/Affirm/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
                          'cohort/Affirm/21-1/AFRM21A_20221011.xlsx - AFRM21A-HistInfo.csv']
+
+list_of_lendingclub_cohort = ['cohort/LendingClub/19-1/LCR191_20220928.xlsx - LCR191-CStats.csv',
+                         'cohort/LendingClub/20-1/LCR201_20220928(2).xlsx - LCR201-CStats.csv',
+                         'cohort/LendingClub/21-1/LCLC21N1_20220928.xlsx - LCLC21N1-CStats.csv']
 ###### Functions ######
 
 def concat_csvs(list_csvs):
@@ -39,10 +43,11 @@ def bucketize_date(val, full_month_format):
 if __name__ == '__main__':
 
     ###### Cohort file ######
-    df_cohort = concat_csvs(list_of_affirm_cohort)
+    df_cohort = pandas.read_csv(list_of_affirm_cohort[2], index_col=0)
 
     df_cohort.index.astype(str, copy=False)
-    deal = df_cohort.loc['WALA']['Graph'][0]
+    deal = df_cohort.loc['WALA','Graph']
+
     print(deal)
     for val in df_cohort.columns:
         if(val != 'Unnamed: 1' and val !='Graph'):
@@ -98,7 +103,7 @@ if __name__ == '__main__':
 
     df_cohort_stock = df_cohort_stock.dropna()
 
-    df_cohort_stock.to_csv('data/cohort stock/Affirm/Affirm-cohort-stock.csv')
+    df_cohort_stock.to_csv('file3.csv')
 
     print('end')
 
