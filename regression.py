@@ -2,7 +2,7 @@ from sklearn import linear_model, metrics, model_selection
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 
-df = pd.read_csv('data/cohort stock/Affirm/Affirm-cohort-stock.csv', index_col=0)
+df = pd.read_csv('data/cohort stock/AFRM/AFRM-cohort-stock.csv', index_col=0)
 
 X = df['Gross_Coupon'].values.reshape(-1, 1)
 y = df['Close'].values.reshape(-1, 1)
