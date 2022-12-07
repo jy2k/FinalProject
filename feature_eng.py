@@ -49,6 +49,7 @@ for col in columns_to_calc_change:
             #df[current_col] = df[current_col].fillna('E')
             df[current_col] = df[current_col].replace(['-','nan'], 'E')
             df = df.replace({current_col: KR_dict})
+            df[current_col] = df[current_col].astype('float')
         else:
             df[current_col] = df[current_col].fillna(0)
 
