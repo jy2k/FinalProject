@@ -4,7 +4,7 @@ from datetime import datetime
 ###### Params ######
 # https://www.programiz.com/python-programming/datetime/strptime
 
-list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
+list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
 stock_column_names = ['Open','High','Low','Close','Adj_Close','Volume']
 
 list_of_affirm_cohort = ['cohort/AFRM/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
@@ -85,8 +85,8 @@ def work(filename, stock, date_format, day_of_the_month,column_params):
 
     df = pandas.read_csv(f'stocks/{stock}.csv')
 
-    import date_util
-    df_stock_filtered_final = date_util.filter_date(df, day_of_the_month)
+    import utils
+    df_stock_filtered_final = utils.filter_date(df, day_of_the_month)
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
 

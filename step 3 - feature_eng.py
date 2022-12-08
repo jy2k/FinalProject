@@ -77,7 +77,7 @@ for stock, file in dict_of_finsight_files.items():
             except:
                 print(f'For file {file} - couldn\'t find column {character}')
 
-    df.to_csv(f'data/post feature eng/finsight_{stock}_post_feature_eng_{i}.csv')
+    df.to_csv(f'data/post feature eng/finsight_{stock}_post_feature_eng.csv')
     i=i+1
 
 print('end')

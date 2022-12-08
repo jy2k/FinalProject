@@ -5,11 +5,11 @@
 import pandas as pd
 
 
-dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_post_feature_eng_0.csv',
-                         'LC': 'data/post feature eng/finsight_LC_post_feature_eng_1.csv',
-                        'OPRT': 'data/post feature eng/finsight_OPRT_post_feature_eng_2.csv',
-                        'SOFI': 'data/post feature eng/finsight_SOFI_post_feature_eng_3.csv',
-                        'UPST': 'data/post feature eng/finsight_UPST_post_feature_eng_4.csv'}
+dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_post_feature_eng.csv',
+                         'LC': 'data/post feature eng/finsight_LC_post_feature_eng.csv',
+                        'OPRT': 'data/post feature eng/finsight_OPRT_post_feature_eng.csv',
+                        'SOFI': 'data/post feature eng/finsight_SOFI_post_feature_eng.csv',
+                        'UPST': 'data/post feature eng/finsight_UPST_post_feature_eng.csv'}
 
 def manipulate(filename):
     df_finsight = pd.read_csv(filename)
