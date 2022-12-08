@@ -18,12 +18,6 @@ def manipulate(filename):
     df_stock = pd.read_csv('stocks/AFRM.csv')
     df_stock['Date'] =  pd.to_datetime(df_stock['Date'], format='%Y-%m-%d')
 
-    df_stock.sort_values('Date', inplace=True)
-    df_stock['adj_1'] = df_stock['Adj Close'].shift(-1)
-    df_stock['adj_7'] = df_stock['Adj Close'].shift(-5)
-    df_stock['adj_30'] = df_stock['Adj Close'].shift(-22)
-    df_stock['adj_90'] = df_stock['Adj Close'].shift(-66)
-
     date_list = df_finsight['Date'].values
 
     df_stock.set_index('Date', inplace = True)
