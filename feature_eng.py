@@ -1,6 +1,10 @@
 import pandas as pd
 
-df = pd.read_csv('Finsight/Finsight data - Affirm_edited_reformatted.csv')
+list_of_finsight_files = ['Finsight/Finsight data - Affirm_edited_reformatted.csv',
+                          'Finsight/Finsight data - LC_edited_reformatted.csv',
+                          'Finsight/Finsight data - OPRT_edited_reformatted.csv',
+                          'Finsight/Finsight data - SoFi_edited_onlyESOT_reformatted.csv',
+                          'Finsight/Finsight data - UPST_edited_reformatted.csv']
 
 KR_dict = {
     'AAA': 10,
@@ -40,23 +44,38 @@ columns_to_calc_change = ['CPN', 'KR', 'MO', 'PRICE', 'SPRD', 'SZE(M)', 'WAL', '
 def range_char(start, stop):
     return (chr(n) for n in range(ord(start), ord(stop) + 1))
 
-for col in columns_to_calc_change:
-    for character in range_char("A", "E"):
-        current_col = col+'-'+character
-        new_col_name = str(current_col + '-change')
+i=0
+for file in list_of_finsight_files:
 
-        if current_col in ['KR'+'-'+character, 'MO'+'-'+character]: #Need to handle - in the categorizing column before.
-            #df[current_col] = df[current_col].fillna('E')
-            df[current_col] = df[current_col].replace(['-','nan'], 'E')
-            df = df.replace({current_col: KR_dict})
-            df[current_col] = df[current_col].astype('float')
-        else:
-            df[current_col] = df[current_col].fillna(0)
+    df = pd.read_csv(file)
 
-        if current_col in ['CPN'+'-'+character]:
-            df[current_col] = df[current_col].replace(['-'], '0.0')
-            df[current_col] = df[current_col].str.rstrip('%').astype('float') / 100.0
+    for col in columns_to_calc_change:
+        for character in range_char("A", "E"):
+            try:
+                current_col = col+'-'+character
+                new_col_name = str(current_col + '-change')
 
-        df[new_col_name] = df[current_col].diff(periods=1)
+                if current_col in ['KR'+'-'+character, 'MO'+'-'+character]: #Need to handle - in the categorizing column before.
+                    #df[current_col] = df[current_col].fillna('E')
+                    df[current_col] = df[current_col].replace(['-','nan'], 'E')
+                    df = df.replace({current_col: KR_dict})
+                    df[current_col] = df[current_col].astype('float')
+                else:
+                    df[current_col] = df[current_col].fillna(0)
+
+                if current_col in ['CPN'+'-'+character, 'YLD'+'-'+character]:
+                    df[current_col] = df[current_col].replace(['-'], '0.0')
+                    df[current_col] = df[current_col].str.rstrip('%').astype('float') / 100.0
+
+                if current_col in ['PRICE'+'-'+character, 'SPRD'+'-'+character, 'SZE(M)'+'-'+character, 'WAL'+'-'+character]:
+                    df[current_col] = df[current_col].replace(['-'], '0.0')
+                    df[current_col] = df[current_col].astype('float')
+
+                df[new_col_name] = df[current_col].diff(periods=1)
+            except:
+                print(f'For file {file} - couldn\'t find colmn {character}')
+
+    df.to_csv(f'data/post feature eng/finsight_post_feature_eng_{i}.csv')
+    i=i+1
 
 print('end')
