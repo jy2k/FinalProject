@@ -1,10 +1,10 @@
 import pandas as pd
 
-list_of_finsight_files = ['Finsight/Finsight data - Affirm_edited_reformatted.csv',
-                          'Finsight/Finsight data - LC_edited_reformatted.csv',
-                          'Finsight/Finsight data - OPRT_edited_reformatted.csv',
-                          'Finsight/Finsight data - SoFi_edited_onlyESOT_reformatted.csv',
-                          'Finsight/Finsight data - UPST_edited_reformatted.csv']
+dict_of_finsight_files = {'AFRM': 'Finsight/Finsight data - Affirm_edited_reformatted.csv',
+                          'LC': 'Finsight/Finsight data - LC_edited_reformatted.csv',
+                          'OPRT': 'Finsight/Finsight data - OPRT_edited_reformatted.csv',
+                          'SOFI': 'Finsight/Finsight data - SoFi_edited_onlyESOT_reformatted.csv',
+                          'UPST': 'Finsight/Finsight data - UPST_edited_reformatted.csv'}
 
 KR_dict = {
     'AAA': 10,
@@ -45,7 +45,7 @@ def range_char(start, stop):
     return (chr(n) for n in range(ord(start), ord(stop) + 1))
 
 i=0
-for file in list_of_finsight_files:
+for stock, file in dict_of_finsight_files.items():
 
     df = pd.read_csv(file)
 
@@ -75,7 +75,7 @@ for file in list_of_finsight_files:
             except:
                 print(f'For file {file} - couldn\'t find colmn {character}')
 
-    df.to_csv(f'data/post feature eng/finsight_post_feature_eng_{i}.csv')
+    df.to_csv(f'data/post feature eng/finsight_{stock}_post_feature_eng_{i}.csv')
     i=i+1
 
 print('end')
