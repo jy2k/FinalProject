@@ -56,10 +56,12 @@ for stock, file in dict_of_finsight_files.items():
                 new_col_name = str(current_col + '-change')
 
                 if current_col in ['KR'+'-'+character, 'MO'+'-'+character]: #Need to handle - in the categorizing column before.
-                    #df[current_col] = df[current_col].fillna('E')
                     df[current_col] = df[current_col].replace(['-','nan'], 'E')
-                    df = df.replace({current_col: KR_dict})
                     df[current_col] = df[current_col].astype('float')
+                    if current_col == str('KR'+'-'+character):
+                        df = df.replace({current_col: KR_dict})
+                    if current_col == str('MO'+'-'+character):
+                        df = df.replace({current_col: MO_dict})
                 else:
                     df[current_col] = df[current_col].fillna(0)
 
