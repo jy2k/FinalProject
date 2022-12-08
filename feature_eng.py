@@ -73,7 +73,7 @@ for stock, file in dict_of_finsight_files.items():
 
                 df[new_col_name] = df[current_col].diff(periods=1)
             except:
-                print(f'For file {file} - couldn\'t find colmn {character}')
+                print(f'For file {file} - couldn\'t find column {character}')
 
     df.to_csv(f'data/post feature eng/finsight_{stock}_post_feature_eng_{i}.csv')
     i=i+1
