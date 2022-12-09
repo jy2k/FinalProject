@@ -1,0 +1,52 @@
+import pandas as pd
+import statsmodels.formula.api as sm
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import statsmodels.formula.api as smf
+from statsmodels.compat import lzip
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+
+afrm_fin_full = pd.read_csv('data/finsight/AFRM/file1_with_stock.csv', index_col=0)
+lc_fin_full = pd.read_csv('data/finsight/LC/file1_with_stock.csv', index_col=0)
+oprt_fin_full = pd.read_csv('data/finsight/OPRT/file1_with_stock.csv', index_col=0)
+sofi_fin_full = pd.read_csv('data/finsight/SOFI/file1_with_stock.csv', index_col=0)
+upst_fin_full = pd.read_csv('data/finsight/UPST/file1_with_stock.csv', index_col=0)
+
+df_list = [afrm_fin_full, oprt_fin_full, sofi_fin_full, upst_fin_full] #lc_fin_full missing!
+
+for df in df_list:
+    df.columns = df.columns.str.replace(' ', '_')
+    df.columns = df.columns.str.replace('+', '')
+    df.columns = df.columns.str.replace('-', '_')
+    df.columns = df.columns.str.replace('(', '')
+    df.columns = df.columns.str.replace(')', '')
+    for i in ['adj_1', 'adj_7', 'adj_30', 'adj_90',]:
+        df[f'{i}_pct_chage'] = df[i].pct_change()
+    print(df)
+
+afrm_fin_full.to_csv(f'data/finsight/finsight_final_data_sets/afrm_fin_full.csv')
+oprt_fin_full.to_csv(f'data/finsight/finsight_final_data_sets/oprt_fin_full.csv')
+sofi_fin_full.to_csv(f'data/finsight/finsight_final_data_sets/sofi_fin_full.csv')
+upst_fin_full.to_csv(f'data/finsight/finsight_final_data_sets/upst_fin_full.csv')
+#lc_fin_full.to_csv(f'data/finsight/finsight_final_data_sets/lc_fin_full.csv')
+
+
+
+
+
+
+
+
+
+##### Notice the LC is empty!! #####
+
+# plt.rc("figure", figsize=(16, 8))
+# plt.rc("font", size=14)
+#
+# plt.plot('Sum_SZE(M)', data = afrm_fin_full)
+
+
+
