@@ -3,6 +3,7 @@ from datetime import datetime
 
 ###### Params ######
 # https://www.programiz.com/python-programming/datetime/strptime
+import pandas as pd
 
 list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
 stock_column_names = ['Date','Open','High','Low','Close','Adj Close','Volume','adj_1','adj_7','adj_30','adj_90','adj_1_change','adj_7_change','adj_30_change','adj_90_change']
@@ -114,5 +115,14 @@ for stock,value in dict_cohort_files.items():
             current_list = list_of_params
 
         df_cohort_stock = work(stock=stock, filename=file, day_of_the_month=current_day_of_the_month, date_format=value['date_format'], column_params=current_list)
+        df_cohort_stock.drop('Date', axis=1, inplace=True)
+        ## adding the benchmark-clean.csv to the df_cohort_stock
         df_cohort_stock.to_csv(f'data/cohort stock/{stock}/file_{i}.csv')
+        df_cohort_stock = df_cohort_stock.reset_index()
+        df_cohort_stock['Date'] = df_cohort_stock['Date'].astype('datetime64[ns]')
+
+        df_benchmark_clean = pd.read_csv('data/benchmark-clean.csv')
+        df_benchmark_clean['Date'] = df_benchmark_clean['Date'].astype('datetime64[ns]')
+        df_benchmark_clean.set_index('Date')
+        df_cohort_stock_bencharmark = df_cohort_stock.merge(df_benchmark_clean, how='left', left_on='Date', right_on='Date')
         i+=1
