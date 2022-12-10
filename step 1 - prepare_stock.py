@@ -37,5 +37,7 @@ for stock, file in dict_of_finsight_files.items():
 for i in ['_adj_1_change', '_adj_7_change', '_adj_30_change', '_adj_90_change']:
     df_benchmark['avg'+i] =df_benchmark[['AFRM'+i, 'LC'+i, 'UPST'+i, 'SOFI'+i,'OPRT'+i]].mean(axis=1)
 
-df_benchmark.to_csv('benchmark.csv')
+df_benchmark.to_csv('data/benchmark.csv')
+df_benchmark.drop(df_benchmark.columns.difference(['Date','avg_adj_1_change', 'avg_adj_7_change', 'avg_adj_30_change', 'avg_adj_90_change']), 1, inplace=True)
+df_benchmark.to_csv('data/benchmark-clean.csv')
 print('end')
