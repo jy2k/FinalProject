@@ -20,6 +20,7 @@ for stock, file in dict_of_finsight_files.items():
     df_stock['adj_7'] = df_stock['Adj Close'].shift(-5)
     df_stock['adj_30'] = df_stock['Adj Close'].shift(-22)
     df_stock['adj_90'] = df_stock['Adj Close'].shift(-66)
+    df_stock = df_stock[df_stock.columns.drop(list(df_stock.filter(regex='Unnamed*')))]
     df_stock.to_csv(file)
     df_stock.set_index('Date')
 
@@ -31,10 +32,10 @@ for stock, file in dict_of_finsight_files.items():
     df_temp[f'{stock}_adj_30_change'] = df_stock['adj_30'].pct_change()
     df_temp[f'{stock}_adj_90_change'] = df_stock['adj_90'].pct_change()
 
-    #merge
     df_benchmark = df_benchmark.merge(df_temp, how='left', left_on='Date', right_on='Date_temp')
 
+for i in ['_adj_1_change', '_adj_7_change', '_adj_30_change', '_adj_90_change']:
+    df_benchmark['avg'+i] =df_benchmark[['AFRM'+i, 'LC'+i, 'UPST'+i, 'SOFI'+i,'OPRT'+i]].mean(axis=1)
 
-#save to csv
 df_benchmark.to_csv('benchmark.csv')
 print('end')
