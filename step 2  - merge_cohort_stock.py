@@ -125,4 +125,5 @@ for stock,value in dict_cohort_files.items():
         df_benchmark_clean['Date'] = df_benchmark_clean['Date'].astype('datetime64[ns]')
         df_benchmark_clean.set_index('Date')
         df_cohort_stock_bencharmark = df_cohort_stock.merge(df_benchmark_clean, how='left', left_on='Date', right_on='Date')
+        df_cohort_stock_bencharmark.to_csv(f'data/cohort stock/{stock}/file_{i}_benchmark.csv')
         i+=1
