@@ -4,8 +4,8 @@ from datetime import datetime
 ###### Params ######
 # https://www.programiz.com/python-programming/datetime/strptime
 
-list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
-stock_column_names = ['Open','High','Low','Close','Adj_Close','Volume']
+list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
+stock_column_names = ['Date','Open','High','Low','Close','Adj Close','Volume','adj_1','adj_7','adj_30','adj_90','adj_1_change','adj_7_change','adj_30_change','adj_90_change']
 
 list_of_affirm_cohort = ['cohort/AFRM/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
                          'cohort/AFRM/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
