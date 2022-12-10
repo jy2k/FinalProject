@@ -1,10 +1,10 @@
 import pandas as pd
 
-dict_of_finsight_files = {'AFRM': 'Finsight/Finsight data - Affirm_edited_reformatted.csv',
-                          'LC': 'Finsight/Finsight data - LC_edited_reformatted.csv',
-                          'OPRT': 'Finsight/Finsight data - OPRT_edited_reformatted.csv',
-                          'SOFI': 'Finsight/Finsight data - SoFi_edited_onlyESOT_reformatted.csv',
-                          'UPST': 'Finsight/Finsight data - UPST_edited_reformatted.csv'}
+dict_of_finsight_files = {'AFRM': 'Finsight source data/Finsight source data data - Affirm_edited_reformatted.csv',
+                          'LC': 'Finsight source data/Finsight source data data - LC_edited_reformatted.csv',
+                          'OPRT': 'Finsight source data/Finsight source data data - OPRT_edited_reformatted.csv',
+                          'SOFI': 'Finsight source data/Finsight source data data - SoFi_edited_onlyESOT_reformatted.csv',
+                          'UPST': 'Finsight source data/Finsight source data data - UPST_edited_reformatted.csv'}
 
 KR_dict = {
     'AAA': 10,
