@@ -5,17 +5,17 @@
 import pandas as pd
 
 
-dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_post_feature_eng.csv',
-                         'LC': 'data/post feature eng/finsight_LC_post_feature_eng.csv',
-                        'OPRT': 'data/post feature eng/finsight_OPRT_post_feature_eng.csv',
-                        'SOFI': 'data/post feature eng/finsight_SOFI_post_feature_eng.csv',
-                        'UPST': 'data/post feature eng/finsight_UPST_post_feature_eng.csv'}
+dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_with_deltas.csv',
+                         'LC': 'data/post feature eng/finsight_LC_with_deltas.csv',
+                        'OPRT': 'data/post feature eng/finsight_OPRT_with_deltas.csv',
+                        'SOFI': 'data/post feature eng/finsight_SOFI_with_deltas.csv',
+                        'UPST': 'data/post feature eng/finsight_UPST_with_deltas.csv'}
 
 def manipulate(filename):
     df_finsight = pd.read_csv(filename)
     df_finsight['Date'] =  pd.to_datetime(df_finsight['Date'], format='%Y-%m-%d')
 
-    df_stock = pd.read_csv('stocks/AFRM.csv')
+    df_stock = pd.read_csv('stocks/AFRM.csv') Need to fix this shit bugg.....
     df_stock['Date'] =  pd.to_datetime(df_stock['Date'], format='%Y-%m-%d')
 
     date_list = df_finsight['Date'].values
