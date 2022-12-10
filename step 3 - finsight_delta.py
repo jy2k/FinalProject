@@ -1,10 +1,10 @@
 import pandas as pd
 
-dict_of_finsight_files = {'AFRM': 'Finsight source data/Finsight source data data - Affirm_edited_reformatted.csv',
-                          'LC': 'Finsight source data/Finsight source data data - LC_edited_reformatted.csv',
-                          'OPRT': 'Finsight source data/Finsight source data data - OPRT_edited_reformatted.csv',
-                          'SOFI': 'Finsight source data/Finsight source data data - SoFi_edited_onlyESOT_reformatted.csv',
-                          'UPST': 'Finsight source data/Finsight source data data - UPST_edited_reformatted.csv'}
+dict_of_finsight_files = {'AFRM': 'Finsight source data/Finsight data - Affirm_edited_reformatted.csv',
+                          'LC': 'Finsight source data/Finsight data - LC_edited_reformatted.csv',
+                          'OPRT': 'Finsight source data/Finsight data - OPRT_edited_reformatted.csv',
+                          'SOFI': 'Finsight source data/Finsight data - SoFi_edited_onlyESOT_reformatted.csv',
+                          'UPST': 'Finsight source data/Finsight data - UPST_edited_reformatted.csv'}
 
 KR_dict = {
     'AAA': 10,
@@ -77,7 +77,7 @@ for stock, file in dict_of_finsight_files.items():
             except:
                 print(f'For file {file} - couldn\'t find column {character}')
 
-    df.to_csv(f'data/post feature eng/finsight_{stock}_post_feature_eng.csv')
+    df.to_csv(f'data/post feature eng/finsight_{stock}_with_deltas.csv')
     i=i+1
 
 print('end')
