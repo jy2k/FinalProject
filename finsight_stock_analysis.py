@@ -20,6 +20,8 @@ finsight_interesting_columns = ['Sum_SZEM', 'CPN_A', 'PRICE_A', 'SPRD_A', 'SZEM_
                                 'CPN_B', 'PRICE_B', 'SPRD_B', 'SZEM_B', 'WAL_B', 'YLD_B',
                                 'CPN_C', 'PRICE_C', 'SPRD_C', 'SZEM_C', 'WAL_C', 'YLD_C']
 
+### If there is D and E you are missing it
+
 finsight_deltas = ['CPN_A_change', 'CPN_B_change', 'CPN_C_change', 'CPN_D_change', 'PRICE_A_change',
                    'PRICE_B_change', 'PRICE_C_change', 'PRICE_D_change', 'SPRD_A_change', 'SPRD_B_change',
                    'SPRD_C_change', 'SPRD_D_change', 'SZEM_A_change', 'SZEM_B_change', 'SZEM_C_change',
