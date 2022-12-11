@@ -28,8 +28,8 @@ finsight_deltas = ['CPN_A_change', 'CPN_B_change', 'CPN_C_change', 'CPN_D_change
                    'SZEM_D_change', 'WAL_A_change', 'WAL_B_change', 'WAL_C_change',
                    'WAL_D_change', 'YLD_A_change', 'YLD_B_change', 'YLD_C_change', 'YLD_D_change']
 
-finsight_stock_data = ['Adj_Close', 'adj_1', 'adj_7', 'adj_30', 'adj_90', 'adj_1_pct_chage', 'adj_7_pct_chage',
-                       'adj_30_pct_chage', 'adj_90_pct_chage']
+finsight_stock_data = ['Adj_Close', 'adj_1', 'adj_7', 'adj_30', 'adj_90', 'adj_1_change', 'adj_7_change',
+                       'adj_30_change', 'adj_90_change']
 
 combined_list = finsight_interesting_columns + finsight_deltas + finsight_stock_data
 explanatory_variables = finsight_interesting_columns + finsight_deltas
@@ -41,7 +41,7 @@ for i in finsight_interesting_columns:
 sn.heatmap(upst_fin_full[combined_list].corr())
 plt.show()
 
-results = smf.ols('adj_1_pct_chage ~ CPN_A + PRICE_A + SPRD_A + WAL_A + YLD_A ', data=upst_fin_full).fit()
+results = smf.ols('adj_1_change ~ CPN_A + PRICE_A + SPRD_A + WAL_A + YLD_A ', data=upst_fin_full).fit()
 print(results.summary())
 
 print(results.params)
@@ -57,7 +57,7 @@ print(results.rsquared_adj)
 
 
 rsquared_adj_list = []
-for i in ['adj_1_pct_chage', 'adj_7_pct_chage', 'adj_30_pct_chage', 'adj_90_pct_chage']:
+for i in ['adj_1_change', 'adj_7_change', 'adj_30_change', 'adj_90_change']:
     results = smf.ols(f'{i} ~ Sum_SZEM + CPN_A + PRICE_A + SPRD_A + SZEM_A + WAL_A + YLD_A', data=upst_fin_full).fit()
     print(results.summary())
     rsquared_adj_list.append(results.rsquared_adj)
