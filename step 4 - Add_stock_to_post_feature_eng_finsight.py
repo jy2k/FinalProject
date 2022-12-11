@@ -11,11 +11,11 @@ dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_with_deltas.cs
                         'SOFI': 'data/post feature eng/finsight_SOFI_with_deltas.csv',
                         'UPST': 'data/post feature eng/finsight_UPST_with_deltas.csv'}
 
-def manipulate(filename):
+def manipulate(filename, stock):
     df_finsight = pd.read_csv(filename)
     df_finsight['Date'] =  pd.to_datetime(df_finsight['Date'], format='%Y-%m-%d')
 
-    df_stock = pd.read_csv('stocks/AFRM.csv') Need to fix this shit bugg.....
+    df_stock = pd.read_csv(f'stocks/{stock}.csv')
     df_stock['Date'] =  pd.to_datetime(df_stock['Date'], format='%Y-%m-%d')
 
     date_list = df_finsight['Date'].values
@@ -31,7 +31,7 @@ def manipulate(filename):
     return final
 
 for stock, file in dict_cohort_files.items():
-    final = manipulate(file)
-    final.to_csv(f'data/finsight/{stock}/file1_with_stock.csv')
+    final = manipulate(file, stock)
+    final.to_csv(f'data/finsight/{stock}/finsight_with_stock.csv')
 
 print('end')
