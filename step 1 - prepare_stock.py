@@ -40,4 +40,13 @@ for i in ['_adj_1_change', '_adj_7_change', '_adj_30_change', '_adj_90_change']:
 df_benchmark.to_csv('data/benchmark.csv')
 df_benchmark.drop(df_benchmark.columns.difference(['Date','avg_adj_1_change', 'avg_adj_7_change', 'avg_adj_30_change', 'avg_adj_90_change']), 1, inplace=True)
 df_benchmark.to_csv('data/benchmark-clean.csv')
+
+#add the benchmark to every stock that way it gets merged into the
+#Left join on the stock per file.
+for stock, file in dict_of_finsight_files.items():
+    df_benchmark = pd.read_csv('data/benchmark-clean.csv')
+    df_stock = pd.read_csv(f'stocks/{stock}.csv')
+    final_stock = df_stock.merge(df_benchmark, how='left', left_on='Date', right_on='Date')
+    final_stock.to_csv(f'stocks/{stock}.csv')
+
 print('end')

@@ -32,6 +32,6 @@ def manipulate(filename, stock):
 
 for stock, file in dict_cohort_files.items():
     final = manipulate(file, stock)
-    final.to_csv(f'data/finsight/{stock}/finsight_with_stock.csv')
+    final.to_csv(f'data/finsight/{stock}/finsight_with_stock_with_benchmark.csv')
 
 print('end')
