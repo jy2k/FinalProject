@@ -1,10 +1,10 @@
 import pandas as pd
 
-dict_of_finsight_files = {'AFRM': 'stocks source Output data/AFRM.csv',
-                          'LC': 'stocks source Output data/LC.csv',
-                          'OPRT': 'stocks source Output data/OPRT.csv',
-                          'SOFI': 'stocks source Output data/SOFI.csv',
-                          'UPST': 'stocks source Output data/UPST.csv'}
+dict_of_finsight_files = {'AFRM': 'stocks source data/AFRM.csv',
+                          'LC': 'stocks source data/LC.csv',
+                          'OPRT': 'stocks source data/OPRT.csv',
+                          'SOFI': 'stocks source data/SOFI.csv',
+                          'UPST': 'stocks source data/UPST.csv'}
 
 df_benchmark = pd.DataFrame()
 date_range = pd.date_range(start ='12-1-2014',end ='11-23-2022', freq ='1D')

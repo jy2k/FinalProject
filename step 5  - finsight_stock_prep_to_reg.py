@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-afrm_fin_full = pd.read_csv('Output data/finsight/AFRM/file1_with_stock.csv', index_col=0)
-lc_fin_full = pd.read_csv('Output data/finsight/LC/file1_with_stock.csv', index_col=0)
-oprt_fin_full = pd.read_csv('Output data/finsight/OPRT/file1_with_stock.csv', index_col=0)
-sofi_fin_full = pd.read_csv('Output data/finsight/SOFI/file1_with_stock.csv', index_col=0)
-upst_fin_full = pd.read_csv('Output data/finsight/UPST/file1_with_stock.csv', index_col=0)
+afrm_fin_full = pd.read_csv('Output data/finsight/AFRM/finsight_with_stock_with_benchmark.csv', index_col=0)
+lc_fin_full = pd.read_csv('Output data/finsight/LC/finsight_with_stock_with_benchmark.csv', index_col=0)
+oprt_fin_full = pd.read_csv('Output data/finsight/OPRT/finsight_with_stock_with_benchmark.csv', index_col=0)
+sofi_fin_full = pd.read_csv('Output data/finsight/SOFI/finsight_with_stock_with_benchmark.csv', index_col=0)
+upst_fin_full = pd.read_csv('Output data/finsight/UPST/finsight_with_stock_with_benchmark.csv', index_col=0)
 
 df_list = [afrm_fin_full, oprt_fin_full, sofi_fin_full, upst_fin_full] #lc_fin_full missing!
 
@@ -27,11 +27,11 @@ for df in df_list:
         df[f'{i}_pct_chage'] = df[i].pct_change()
     print(df)
 
-afrm_fin_full.to_csv(f'Output data/finsight/finsight_final_data_sets/afrm_fin_full.csv')
-oprt_fin_full.to_csv(f'Output data/finsight/finsight_final_data_sets/oprt_fin_full.csv')
-sofi_fin_full.to_csv(f'Output data/finsight/finsight_final_data_sets/sofi_fin_full.csv')
-upst_fin_full.to_csv(f'Output data/finsight/finsight_final_data_sets/upst_fin_full.csv')
-#lc_fin_full.to_csv(f'Output data/finsight/finsight_final_data_sets/lc_fin_full.csv')
+afrm_fin_full.to_csv(f'Output data/finsight/AFRM/finsight_with_stock_with_benchmark.csv')
+oprt_fin_full.to_csv(f'Output data/finsight/OPRT/finsight_with_stock_with_benchmark.csv')
+sofi_fin_full.to_csv(f'Output data/finsight/SOFI/finsight_with_stock_with_benchmark.csv')
+upst_fin_full.to_csv(f'Output data/finsight/UPST/finsight_with_stock_with_benchmark.csv')
+lc_fin_full.to_csv(f'Output data/finsight/LC/finsight_with_stock_with_benchmark.csv')
 
 
 

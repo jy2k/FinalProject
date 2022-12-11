@@ -10,11 +10,11 @@ import statsmodels.api as sm
 from statsmodels.formula.api import ols
 import seaborn as sn
 
-afrm_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/afrm_fin_full.csv')
-oprt_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/oprt_fin_full.csv')
-sofi_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/sofi_fin_full.csv')
-upst_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/upst_fin_full.csv')
-# lc_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/lc_fin_full.csv')
+afrm_fin_full = pd.read_csv(f'Output data/finsight/AFRM/finsight_with_stock_with_benchmark.csv')
+oprt_fin_full = pd.read_csv(f'Output data/finsight/OPRT/finsight_with_stock_with_benchmark.csv')
+sofi_fin_full = pd.read_csv(f'Output data/finsight/SOFI/finsight_with_stock_with_benchmark.csv')
+upst_fin_full = pd.read_csv(f'Output data/finsight/UPST/finsight_with_stock_with_benchmark.csv')
+lc_fin_full = pd.read_csv(f'Output data/finsight/LC/finsight_with_stock_with_benchmark.csv')
 
 finsight_interesting_columns = ['Sum_SZEM', 'CPN_A', 'PRICE_A', 'SPRD_A', 'SZEM_A', 'WAL_A', 'YLD_A',
                                 'CPN_B', 'PRICE_B', 'SPRD_B', 'SZEM_B', 'WAL_B', 'YLD_B',
