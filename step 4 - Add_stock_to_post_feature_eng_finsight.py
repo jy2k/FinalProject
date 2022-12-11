@@ -1,15 +1,15 @@
 #filter out dates from finsight
 # Add +0 +1 +7 +30 +90
 #Get filtered dates from stock file
-#merge to Finsight source data
+#merge to Finsight source Output data
 import pandas as pd
 
 
-dict_cohort_files = {'AFRM': 'data/post feature eng/finsight_AFRM_with_deltas.csv',
-                         'LC': 'data/post feature eng/finsight_LC_with_deltas.csv',
-                        'OPRT': 'data/post feature eng/finsight_OPRT_with_deltas.csv',
-                        'SOFI': 'data/post feature eng/finsight_SOFI_with_deltas.csv',
-                        'UPST': 'data/post feature eng/finsight_UPST_with_deltas.csv'}
+dict_cohort_files = {'AFRM': 'Output data/post feature eng/finsight_AFRM_with_deltas.csv',
+                         'LC': 'Output data/post feature eng/finsight_LC_with_deltas.csv',
+                        'OPRT': 'Output data/post feature eng/finsight_OPRT_with_deltas.csv',
+                        'SOFI': 'Output data/post feature eng/finsight_SOFI_with_deltas.csv',
+                        'UPST': 'Output data/post feature eng/finsight_UPST_with_deltas.csv'}
 
 def manipulate(filename, stock):
     df_finsight = pd.read_csv(filename)
@@ -32,6 +32,6 @@ def manipulate(filename, stock):
 
 for stock, file in dict_cohort_files.items():
     final = manipulate(file, stock)
-    final.to_csv(f'data/finsight/{stock}/finsight_with_stock_with_benchmark.csv')
+    final.to_csv(f'Output data/finsight/{stock}/finsight_with_stock_with_benchmark.csv')
 
 print('end')

@@ -10,11 +10,11 @@ import statsmodels.api as sm
 from statsmodels.formula.api import ols
 import seaborn as sn
 
-afrm_fin_full = pd.read_csv(f'data/finsight/finsight_final_data_sets/afrm_fin_full.csv')
-oprt_fin_full = pd.read_csv(f'data/finsight/finsight_final_data_sets/oprt_fin_full.csv')
-sofi_fin_full = pd.read_csv(f'data/finsight/finsight_final_data_sets/sofi_fin_full.csv')
-upst_fin_full = pd.read_csv(f'data/finsight/finsight_final_data_sets/upst_fin_full.csv')
-# lc_fin_full = pd.read_csv(f'data/finsight/finsight_final_data_sets/lc_fin_full.csv')
+afrm_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/afrm_fin_full.csv')
+oprt_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/oprt_fin_full.csv')
+sofi_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/sofi_fin_full.csv')
+upst_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/upst_fin_full.csv')
+# lc_fin_full = pd.read_csv(f'Output data/finsight/finsight_final_data_sets/lc_fin_full.csv')
 
 finsight_interesting_columns = ['Sum_SZEM', 'CPN_A', 'PRICE_A', 'SPRD_A', 'SZEM_A', 'WAL_A', 'YLD_A',
                                 'CPN_B', 'PRICE_B', 'SPRD_B', 'SZEM_B', 'WAL_B', 'YLD_B',
@@ -49,7 +49,7 @@ print(results.rsquared_adj)
 
 # rsquared_adj_list = []
 # for i in ['adj_1_pct_chage', 'adj_7_pct_chage', 'adj_30_pct_chage', 'adj_90_pct_chage']:
-#     results = smf.ols(f'{i} ~ CPN_A + PRICE_A + SPRD_A + WAL_A + YLD_A ', data=upst_fin_full).fit()
+#     results = smf.ols(f'{i} ~ CPN_A + PRICE_A + SPRD_A + WAL_A + YLD_A ', Output data=upst_fin_full).fit()
 #     print(results.summary())
 #     rsquared_adj_list.append(results.rsquared_adj)
 # print(rsquared_adj_list)

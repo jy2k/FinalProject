@@ -12,7 +12,7 @@ from statsmodels.formula.api import ols
 plt.rc("figure", figsize=(16, 8))
 plt.rc("font", size=14)
 
-df = pd.read_csv('/Users/eyalben-eliyahu/PycharmProjects/FinalProject/data/cohort stock/AFRM/file_0.csv', index_col=0)
+df = pd.read_csv('/Users/eyalben-eliyahu/PycharmProjects/FinalProject/Output data/Cohort source data stock/AFRM/file_0.csv', index_col=0)
 
 # ['1mo_CPR', 'Gross_Coupon', 'Accum_Net_Loss%',
 #        'Annualized_Net_Loss_Rate', 'Delinq_30+', 'Number_of_Assets',

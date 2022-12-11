@@ -1,10 +1,10 @@
 import pandas as pd
 
-dict_of_finsight_files = {'AFRM': 'stocks/AFRM.csv',
-                          'LC': 'stocks/LC.csv',
-                          'OPRT': 'stocks/OPRT.csv',
-                          'SOFI': 'stocks/SOFI.csv',
-                          'UPST': 'stocks/UPST.csv'}
+dict_of_finsight_files = {'AFRM': 'stocks source Output data/AFRM.csv',
+                          'LC': 'stocks source Output data/LC.csv',
+                          'OPRT': 'stocks source Output data/OPRT.csv',
+                          'SOFI': 'stocks source Output data/SOFI.csv',
+                          'UPST': 'stocks source Output data/UPST.csv'}
 
 df_benchmark = pd.DataFrame()
 date_range = pd.date_range(start ='12-1-2014',end ='11-23-2022', freq ='1D')
@@ -37,16 +37,16 @@ for stock, file in dict_of_finsight_files.items():
 for i in ['_adj_1_change', '_adj_7_change', '_adj_30_change', '_adj_90_change']:
     df_benchmark['avg'+i] =df_benchmark[['AFRM'+i, 'LC'+i, 'UPST'+i, 'SOFI'+i,'OPRT'+i]].mean(axis=1)
 
-df_benchmark.to_csv('data/benchmark.csv')
+df_benchmark.to_csv('Output data/benchmark.csv')
 df_benchmark.drop(df_benchmark.columns.difference(['Date','avg_adj_1_change', 'avg_adj_7_change', 'avg_adj_30_change', 'avg_adj_90_change']), 1, inplace=True)
-df_benchmark.to_csv('data/benchmark-clean.csv')
+df_benchmark.to_csv('Output data/benchmark-clean.csv')
 
 #add the benchmark to every stock that way it gets merged into the
 #Left join on the stock per file.
 for stock, file in dict_of_finsight_files.items():
-    df_benchmark = pd.read_csv('data/benchmark-clean.csv')
-    df_stock = pd.read_csv(f'stocks/{stock}.csv')
+    df_benchmark = pd.read_csv('Output data/benchmark-clean.csv')
+    df_stock = pd.read_csv(f'stocks source data/{stock}.csv')
     final_stock = df_stock.merge(df_benchmark, how='left', left_on='Date', right_on='Date')
-    final_stock.to_csv(f'stocks/{stock}.csv')
+    final_stock.to_csv(f'stocks source Output data/{stock}.csv')
 
 print('end')
