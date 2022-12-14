@@ -15,7 +15,7 @@ def manipulate(filename, stock):
     df_finsight = pd.read_csv(filename)
     df_finsight['Date'] =  pd.to_datetime(df_finsight['Date'], format='%Y-%m-%d')
 
-    df_stock = pd.read_csv(f'stocks/{stock}.csv')
+    df_stock = pd.read_csv(f'stocks source data/{stock}.csv')
     df_stock['Date'] =  pd.to_datetime(df_stock['Date'], format='%Y-%m-%d')
 
     date_list = df_finsight['Date'].values
