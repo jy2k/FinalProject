@@ -262,6 +262,39 @@ for i in upst_deals:
     plt.plot(i['Gross_Coupon_Minus_Annualized_Net_Loss_Rate'])
     plt.show()
 
+#### All cohort deals ####
+
+combined_cohort_deals = [afrm_cohort_stock_combined, upst_cohort_stock_combined, afrm_cohort_stock_combined,
+                   oprt_cohort_stock_combined, lc_cohort_stock_combined]
+
+all_issuers_cohort_stocks = pd.concat(combined_cohort_deals, ignore_index=True, sort=False)
+
+all_costock_combine_bench_rsquared = []
+for i in ['d1_dist_from_bench', 'd7_dist_from_bench', 'd30_dist_from_bench', 'd90_dist_from_bench']:
+    results = smf.ols(f'{i} ~ Gross_Coupon_Minus_Annualized_Net_Loss_Rate + Life_CDR', data=all_issuers_cohort_stocks).fit()
+    print(results.summary())
+    all_costock_combine_bench_rsquared.append(results.rsquared)
+print(all_costock_combine_bench_rsquared)
+
+all_costock_combine_change_rsquared = []
+for i in ['adj_1_change', 'adj_7_change', 'adj_30_change', 'adj_90_change']:
+    results = smf.ols(f'{i} ~ Gross_Coupon_Minus_Annualized_Net_Loss_Rate + Life_CDR', data=all_issuers_cohort_stocks).fit()
+    print(results.summary())
+    all_costock_combine_change_rsquared.append(results.rsquared)
+print(all_costock_combine_change_rsquared)
+print(all_costock_combine_bench_rsquared)
+
+
+x = ['1d', '7d', '30d', '90d']
+
+plt.plot(x, all_costock_combine_change_rsquared, label ="stock change", color ="blue")
+plt.plot(x, all_costock_combine_bench_rsquared, label ="Benchmark", color ="green")
+plt.title('all R^2 for % change and Benchmark in stock')
+plt.ylabel('R^2')
+plt.grid()
+plt.legend()
+plt.show()
+
 
 
 
