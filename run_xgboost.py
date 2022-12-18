@@ -20,3 +20,6 @@ print("RMSE: %.2f" % (mse ** (1 / 2.0)))
 
 # Getting r_2_score
 # https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination
+from sklearn.metrics import r2_score
+r2 = r2_score(test_y, ypred)
+print(f'R2: {r2}')
