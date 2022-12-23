@@ -8,7 +8,8 @@ import pandas as pd
 import utils
 
 list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
-stock_column_names = ['Date','Open','High','Low','Close','Adj Close','Volume','adj_1','adj_7','adj_30','adj_90','adj_1_change','adj_7_change','adj_30_change','adj_90_change']
+
+stock_column_names = ['Open','High','Low','Close','Adj Close','Volume','adj_1','adj_7','adj_30','adj_90','adj_1_change','adj_7_change','adj_30_change','adj_90_change', 'avg_adj_1_change','avg_adj_7_change','avg_adj_30_change','avg_adj_90_change', 'd1_Vol', 'd7_Vol' ,'d30_Vol', 'd90_Vol','d1_BenchVol','d7_BenchVol','d30_BenchVol','d90_BenchVol','d1_ExcessVol','d7_ExcessVol','d30_ExcessVol','d90_ExcessVol']
 
 list_of_affirm_cohort = ['Cohort source data/AFRM/20-1/AFRM20Z1_20221011.xlsx - AFRM20Z1-HistInfo.csv',
                          'Cohort source data/AFRM/20-2/AFRM20Z2_20221011.xlsx - AFRM20Z2-HistInfo.csv',
@@ -79,11 +80,6 @@ def work(filename, stock, date_format, day_of_the_month,column_params):
     df_cohort['1mo CPR'] = df_cohort['1mo CPR'].astype("string")
     df_cohort['1mo CPR'] = deal
 
-    #df_cohort['Gross Coupon - Accum Net Loss%'] = df_cohort['Gross Coupon'] - df_cohort['Accum Net Loss%']
-    #df_cohort['Num Assets in Delinq 30+ Days / Number of Assets'] = df_cohort['Delinq 30+'] / df_cohort['Number of Assets']
-
-    #df_cohort.to_csv(str(file_1+'_reformatted.csv'))
-
     ###### Stock file ######
 
     df = pandas.read_csv(f'stocks source data/{stock}.csv')
@@ -92,10 +88,11 @@ def work(filename, stock, date_format, day_of_the_month,column_params):
     df_stock_filtered_final = utils.filter_date(df, day_of_the_month)
 
     df_cohort_stock = pandas.merge(df_cohort, df_stock_filtered_final, left_index=True, right_index=True, how='outer')
+    #df_cohort_stock.drop(df_cohort_stock.columns[df.columns.str.contains('Unnamed', case=False)], axis=1, inplace=True)
+    df_cohort_stock.drop(df_cohort_stock.columns[df_cohort_stock.columns.str.contains('unnamed', case=False)], axis=1, inplace=True)
 
-    df_cohort_stock.columns = column_params+stock_column_names
+    df_cohort_stock.columns = column_params + stock_column_names
     df_cohort_stock.index.name = 'Date'
-    #df_cohort_stock['series'] = 1
 
     df_cohort_stock = df_cohort_stock.dropna()
 
@@ -117,9 +114,9 @@ for stock,value in dict_cohort_files.items():
             current_list = list_of_params
 
         df_cohort_stock = work(stock=stock, filename=file, day_of_the_month=current_day_of_the_month, date_format=value['date_format'], column_params=current_list)
-        df_cohort_stock.drop('Date', axis=1, inplace=True)
+        #df_cohort_stock.drop('Date', axis=1, inplace=True)
         ## adding the benchmark-clean.csv to the df_cohort_stock
-        df_cohort_stock.to_csv(f'Output data/Cohort source data stock/{stock}/file_{i}.csv')
+        df_cohort_stock.to_csv(f'Output data/Cohort stock/{stock}/file_{i}.csv')
         df_cohort_stock = df_cohort_stock.reset_index()
         df_cohort_stock['Date'] = df_cohort_stock['Date'].astype('datetime64[ns]')
 
@@ -130,5 +127,5 @@ for stock,value in dict_cohort_files.items():
         df_benchmark_clean_filtered = utils.filter_date(data=df_benchmark_clean_dropped_na, day_of_the_month=current_day_of_the_month)
         df_benchmark_clean_filtered.reset_index(inplace=True)
         df_cohort_stock_bencharmark = df_cohort_stock.merge(df_benchmark_clean_filtered, how='left', left_on='Date', right_on='index')
-        df_cohort_stock_bencharmark.to_csv(f'Output data/Cohort source data stock/{stock}/file_{i}_benchmark.csv')
+        df_cohort_stock_bencharmark.to_csv(f'Output data/Cohort stock/{stock}/file_{i}_benchmark.csv')
         i+=1
