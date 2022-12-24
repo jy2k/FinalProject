@@ -5,9 +5,13 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
 from numpy import absolute
 from sklearn.metrics import mean_absolute_error
+#https://medium.com/@polanitzer/the-minimum-mean-absolute-error-mae-challenge-928dc081f031
 
-
-dataset = pd.read_csv('Output data/cohort stock/AFRM/file_0_benchmark.csv')
+afrm_cohort_stock1 = pd.read_csv(f'Output data/cohort stock/AFRM/file_0_benchmark.csv')
+afrm_cohort_stock2 = pd.read_csv(f'Output data/cohort stock/AFRM/file_1_benchmark.csv')
+afrm_cohort_stock3 = pd.read_csv(f'Output data/cohort stock/AFRM/file_2_benchmark.csv')
+afrm_files = [afrm_cohort_stock1, afrm_cohort_stock2, afrm_cohort_stock3]
+dataset = pd.concat(afrm_files, ignore_index=True, sort=False)
 
 def add_columns(df):
     df.columns = df.columns.str.replace(' ', '_')
@@ -19,9 +23,9 @@ def add_columns(df):
     df['d90_dist_from_bench'] = df['adj_90_change'] - df['avg_adj_90_change']
     return df
 dataset = add_columns(dataset)
-dataset.dropna(axis=0, subset=['adj_1_change'], inplace=True)
-y = dataset['adj_1_change'].astype('float')
-X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR']].astype('float')
+dataset.dropna(axis=0, inplace=True)
+y = dataset['adj_7_change'].astype('float')
+X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float')
 
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
 
@@ -113,3 +117,11 @@ print('Mean MAE: %.3f' %t1)
 
 r2 = r2_score(test_y, ypred)
 print(f'R^2: {r2}')
+
+print('Random Forest Regressor')
+from sklearn.ensemble import RandomForestRegressor
+
+rf = RandomForestRegressor(random_state=42, n_estimators=100)
+rf.fit(train_X, train_y)
+ypred = rf.predict(test_X)
+print("Random Forest R squared: {:.4f}".format(r2_score(test_y, ypred)))
