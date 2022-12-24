@@ -12,17 +12,16 @@ def add_columns(df):
     df['d30_dist_from_bench'] = df['adj_30_change'] - df['avg_adj_30_change']
     df['d90_dist_from_bench'] = df['adj_90_change'] - df['avg_adj_90_change']
     return df
-# add ability to control adj/unadj
-# add ability to control out of sample size
-def my_ols(df, X_list, y_list):
+
+def my_ols(df, X_list, y_list, use_adj=False, test_percent=0.2):
 
     in_sample_r2 = []
     out_of_sample_r2 = []
 
     for i in y_list:
-        y = df_combined_stocks[i]
-        X = df_combined_stocks[X_list]
-        train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.2)
+        y = df[i]
+        X = df[X_list]
+        train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=test_percent)
         results = sm.OLS(train_y, train_X).fit()
         from sklearn.metrics import r2_score
         ypred = results.predict(test_X)
@@ -31,7 +30,7 @@ def my_ols(df, X_list, y_list):
         #print(results.summary())
 
         out_of_sample_r2.append(r2)
-        in_sample_r2.append(results.rsquared)
+        in_sample_r2.append(results.rsquared_adj if use_adj else results.rsquared)
 
     print('In of sample: ')
     print(in_sample_r2)
