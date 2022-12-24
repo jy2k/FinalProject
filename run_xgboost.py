@@ -13,6 +13,8 @@ afrm_cohort_stock3 = pd.read_csv(f'Output data/cohort stock/AFRM/file_2_benchmar
 afrm_files = [afrm_cohort_stock1, afrm_cohort_stock2, afrm_cohort_stock3]
 dataset = pd.concat(afrm_files, ignore_index=True, sort=False)
 
+results = pd.DataFrame(columns=['Model', 'MAE'])
+
 def add_columns(df):
     df.columns = df.columns.str.replace(' ', '_')
     df.columns = df.columns.str.replace('+', '')
@@ -30,6 +32,7 @@ X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float'
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
 
 print('XGBRegressor')
+
 xgbr = XGBRegressor(objective='reg:squarederror')
 xgbr.fit(train_X, train_y)
 ypred = xgbr.predict(test_X)
@@ -40,6 +43,9 @@ scores = cross_val_score(xgbr, X, y, scoring='neg_mean_absolute_error', cv=cv, n
 # force scores to be positive
 scores = absolute(scores)
 print('Mean MAE: %.3f (%.3f)' % (scores.mean(), scores.std()) )
+
+list_row = ['XGBRegressor', scores.mean()]
+results.loc[len(results)] = list_row
 
 # https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination
 from sklearn.metrics import r2_score
@@ -66,6 +72,9 @@ scores = cross_val_score(model, train_X, train_y, scoring='neg_mean_absolute_err
 scores = absolute(scores)
 print('Mean MAE: %.3f (%.3f)' % (mean(scores), std(scores)))
 
+list_row = ['Lasso', scores.mean()]
+results.loc[len(results)] = list_row
+
 ypred = model.predict(test_X)
 r2 = r2_score(test_y, ypred)
 print(f'R^2: {r2}')
@@ -84,6 +93,9 @@ scores = cross_val_score(model, train_X, train_y, scoring='neg_mean_absolute_err
 scores = absolute(scores)
 print('Mean MAE: %.3f (%.3f)' % (mean(scores), std(scores)))
 
+list_row = ['Ridge', scores.mean()]
+results.loc[len(results)] = list_row
+
 ypred = model.predict(test_X)
 r2 = r2_score(test_y, ypred)
 print(f'R^2: {r2}')
@@ -101,6 +113,9 @@ scores = cross_val_score(model, train_X, train_y, scoring='neg_mean_absolute_err
 scores = absolute(scores)
 print('Mean MAE: %.3f (%.3f)' % (mean(scores), std(scores)))
 
+list_row = ['ElasticNet', scores.mean()]
+results.loc[len(results)] = list_row
+
 ypred = model.predict(test_X)
 r2 = r2_score(test_y, ypred)
 print(f'R^2: {r2}')
@@ -115,6 +130,9 @@ ypred = regressor.predict(test_X)
 t1 = mean_absolute_error(test_y, ypred)
 print('Mean MAE: %.3f' %t1)
 
+list_row = ['Decision Tree', t1]
+results.loc[len(results)] = list_row
+
 r2 = r2_score(test_y, ypred)
 print(f'R^2: {r2}')
 
@@ -125,3 +143,29 @@ rf = RandomForestRegressor(random_state=42, n_estimators=100)
 rf.fit(train_X, train_y)
 ypred = rf.predict(test_X)
 print("Random Forest R squared: {:.4f}".format(r2_score(test_y, ypred)))
+
+list_row = ['Random Forest', scores.mean()]
+results.loc[len(results)] = list_row
+
+print('Linear Regression')
+
+from sklearn.linear_model import LinearRegression
+linreg = LinearRegression()
+linreg.fit(train_X, train_y)
+ypred = linreg.predict(test_X)
+l1 = mean_absolute_error(test_y, ypred)
+print('Mean MAE: %.3f' %l1
+      )
+list_row = ['Linear Regression', l1]
+results.loc[len(results)] = list_row
+
+results = results.sort_values(by = 'MAE', ascending = False)
+
+print(results)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8,8))
+sns.barplot(x = 'MAE', y = 'Model', data = results)
+plt.show()
+
