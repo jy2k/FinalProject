@@ -1,7 +1,7 @@
 import pandas as pd
 
-filename = 'Finsight source Output data Output data - UPST_edited'
-initial = pd.read_csv(filename+'.csv')
+filename = 'Finsight source data/Finsight data - SoFi_edited_onlyESOT.csv'
+initial = pd.read_csv(filename)
 pd.to_datetime(initial['Date'])
 initial['Date'] = pd.to_datetime(initial['Date'])
 
