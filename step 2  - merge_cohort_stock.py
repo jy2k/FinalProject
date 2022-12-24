@@ -7,7 +7,7 @@ import pandas as pd
 
 import utils
 
-list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
+list_of_params = ['1mo CPR','Gross Coupon', 'Accum Net Loss%', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR', 'Life CPR']
 
 stock_column_names = ['Open','High','Low','Close','Adj Close','Volume','adj_1','adj_7','adj_30','adj_90','adj_1_change','adj_7_change','adj_30_change','adj_90_change', 'avg_adj_1_change','avg_adj_7_change','avg_adj_30_change','avg_adj_90_change', 'd1_Vol', 'd7_Vol' ,'d30_Vol', 'd90_Vol','d1_BenchVol','d7_BenchVol','d30_BenchVol','d90_BenchVol','d1_ExcessVol','d7_ExcessVol','d30_ExcessVol','d90_ExcessVol']
 
@@ -108,10 +108,11 @@ for stock,value in dict_cohort_files.items():
         if file == 'Cohort source data/AFRM/21-1/AFRM21A_20221011.xlsx - AFRM21A-HistInfo.csv':
             current_list = ['1mo CPR','Gross Coupon', 'Annualized Net Loss Rate', 'Delinq 30+', 'Number of Assets', 'Life CDR']
         elif file ==  'Cohort source data/OPRT/20-1/OPF2001_20221011.xlsx - OPF2001-HistInfo.csv':
-            current_list = ['1mo CPR','Gross Coupon (Derived)', 'Annualized Net Loss Rate', 'Delinq 30+', 'Life CDR']
             current_day_of_the_month = 15
         else:
             current_list = list_of_params
+        if 'OPRT' in file:
+            current_list = ['1mo CPR','Gross Coupon (Derived)', 'Annualized Net Loss Rate', 'Delinq 30+', 'Life CDR']
 
         df_cohort_stock = work(stock=stock, filename=file, day_of_the_month=current_day_of_the_month, date_format=value['date_format'], column_params=current_list)
         #df_cohort_stock.drop('Date', axis=1, inplace=True)
