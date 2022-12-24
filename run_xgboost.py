@@ -4,6 +4,16 @@ from xgboost import XGBRegressor
 
 dataset = pd.read_csv('Output data/cohort stock/AFRM/file_0_benchmark.csv')
 
+def add_columns(df):
+    df.columns = df.columns.str.replace(' ', '_')
+    df.columns = df.columns.str.replace('+', '')
+    df['Gross_Coupon_Minus_Annualized_Net_Loss_Rate'] = df['Gross_Coupon'].subtract(df['Annualized_Net_Loss_Rate'])
+    df['d1_dist_from_bench'] = df['adj_1_change'] - df['avg_adj_1_change']
+    df['d7_dist_from_bench'] = df['adj_7_change'] - df['avg_adj_7_change']
+    df['d30_dist_from_bench'] = df['adj_30_change'] - df['avg_adj_30_change']
+    df['d90_dist_from_bench'] = df['adj_90_change'] - df['avg_adj_90_change']
+    return df
+dataset = add_columns(dataset)
 dataset.dropna(axis=0, subset=['adj_1_change'], inplace=True)
 y = dataset['adj_1_change'].astype('float')
 X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR']].astype('float')
