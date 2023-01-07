@@ -12,6 +12,15 @@ afrm_cohort_stock2 = pd.read_csv(f'Output data/cohort stock/AFRM/file_1_benchmar
 afrm_cohort_stock3 = pd.read_csv(f'Output data/cohort stock/AFRM/file_2_benchmark.csv')
 afrm_files = [afrm_cohort_stock1, afrm_cohort_stock2, afrm_cohort_stock3]
 
+def add_columns_with_predictions(model, pred_column, dates_df, X):
+    df = pd.DataFrame()
+    y_pred = model.predict(X)
+
+    df['Date'] = dates_df['Date']
+    df[str('AFRM_'+pred_column)] = y_pred
+    #need to save new file
+    df.to_csv('AFRM_preds.csv')
+    print('success')
 
 def add_columns(df):
     df.columns = df.columns.str.replace(' ', '_')
@@ -23,12 +32,12 @@ def add_columns(df):
     df['d90_dist_from_bench'] = df['adj_90_change'] - df['avg_adj_90_change']
     return df
 
-def work(y):
-    interim = pd.DataFrame(columns=['Model', y])
+def work(pred_column):
+    interim = pd.DataFrame(columns=['Model', pred_column])
     dataset = pd.concat(afrm_files, ignore_index=True, sort=False)
     dataset = add_columns(dataset)
     dataset.dropna(axis=0, inplace=True)
-    y = dataset[y].astype('float')
+    y = dataset[pred_column].astype('float')
     X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float')
 
     train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
@@ -150,6 +159,8 @@ def work(y):
 
     list_row = ['Random Forest', scores.mean()]
     interim.loc[len(interim)] = list_row
+
+    add_columns_with_predictions(rf,pred_column, dataset[['Date']], X)
 
     print('Linear Regression')
 
