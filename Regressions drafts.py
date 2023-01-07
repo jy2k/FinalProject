@@ -341,7 +341,11 @@ plt.show()
 # plt.legend()
 # plt.show()
 
-
+# plt.scatter(df_combined_files['adj_7_change'], df_combined_files['Annualized_Net_Loss_Rate'], alpha=0.5)
+# plt.title('Scatter plot of Annualized_Net_Loss_Rate with adj_7_change')
+# plt.xlabel('adj_7_change')
+# plt.ylabel('Annualized_Net_Loss_Rate')
+# plt.show()
 
 
 

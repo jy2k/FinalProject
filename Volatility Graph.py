@@ -20,7 +20,6 @@ sofi = pd.read_csv('stocks source data/SOFI.csv')
 upst = pd.read_csv('stocks source data/UPST.csv')
 all_stock_data=[afrm, lc, oprt, sofi, upst]
 
-
 afrm_finsight_dates = pd.read_csv('Output data/finsight/AFRM/finsight_with_stock_with_benchmark.csv')['Date'].values
 lc_finsight_dates = pd.read_csv('Output data/finsight/LC/finsight_with_stock_with_benchmark.csv')['Date'].values
 oprt_finsight_dates = pd.read_csv('Output data/finsight/OPRT/finsight_with_stock_with_benchmark.csv')['Date'].values

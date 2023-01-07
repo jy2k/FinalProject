@@ -83,7 +83,7 @@ import itertools
 combined_cohort_deals = list(itertools.chain(afrm_files, lc_files, oprt_files, sofi_files, upst_files))
 
 #### Regression runs
-df_combined_files = pd.concat(afrm_files, ignore_index=True, sort=False)
+df_combined_files = pd.concat(combined_cohort_deals, ignore_index=True, sort=False)
 df_combined_files = add_columns(df_combined_files)
 
 print('working on adj change')
