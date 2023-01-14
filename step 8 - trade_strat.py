@@ -64,7 +64,7 @@ for index, row in df.iterrows():
 
     print('end of one row iteration')
 
-df['cumulative_returns'] = df['daily_return'].cumsum()
+df['compounded_returns'] = (1 + df['daily_return']).cumprod() - 1
 
 import matplotlib.pyplot as plt
 
