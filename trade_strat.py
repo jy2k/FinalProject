@@ -64,6 +64,13 @@ for index, row in df.iterrows():
 
     print('end of one row iteration')
 
+df['cumulative_returns'] = df['daily_return'].cumsum()
+
+import matplotlib.pyplot as plt
+
+df.plot(kind='line', x='Date', y='daily_return', title='Cummulative returns per date')
+plt.show()
+
 print('end')
 
 
