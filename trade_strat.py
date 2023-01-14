@@ -57,10 +57,10 @@ for index, row in df.iterrows():
 
     #creating the strat assuming weights of 0.5 -0.5
     print(index)
-    df.at[index, 'long_gain'] = 0.5 * (actual[max_key[:-5]])
-    df.at[index, 'short_gain'] = -0.5 * (actual[min_key[:-5]])
+    df.loc[index, 'long_gain'] = 0.5 * (actual[max_key[:-5]])
+    df.loc[index, 'short_gain'] = -0.5 * (actual[min_key[:-5]])
 
-    df.at[index, 'daily_return'] = df.at[index, 'long_gain'] + df.at[index, 'short_gain']
+    df.loc[index, 'daily_return'] = df.loc[index, 'long_gain'] + df.loc[index, 'short_gain']
 
     print('end of one row iteration')
 
