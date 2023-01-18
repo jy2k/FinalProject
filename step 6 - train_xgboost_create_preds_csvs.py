@@ -78,6 +78,12 @@ def run_model(stock, dataset, pred_column):
 for stock , files in dict_of_stock_files.items():
 
     dataset = pd.concat(files, ignore_index=True, sort=False)
+
+    dataset['Date'] = pd.to_datetime(dataset['Date'])
+    grouped = dataset.groupby(dataset['Date'])
+    # Calculate the average of the value column for each group
+    dataset = grouped.mean()
+    dataset = dataset.reset_index()
     dataset = add_columns(dataset)
     dataset.dropna(axis=0, inplace=True)
 

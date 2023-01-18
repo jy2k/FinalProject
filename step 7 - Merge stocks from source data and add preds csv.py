@@ -90,7 +90,14 @@ for stock in stock_list:
 
     df_current_stock = pd.read_csv(str(stock+"_preds.csv"))
 
-    df_merged = pd.merge(df_current_stock, df_merged, on="Date", how="outer")
+    df_merged = pd.merge(df_current_stock, df_merged, on="Date", how="right")
+    print("test")
+df_merged = df_merged[['Date','UPST_adj_1_change_pred', 'SOFI_adj_1_change_pred', 'OPRT_adj_1_change_pred', 'LC_adj_1_change_pred', 'AFRM_adj_1_change_pred', 'AFRM_adj_1_change', 'LC_adj_1_change', 'OPRT_adj_1_change', 'SOFI_adj_1_change', 'UPST_adj_1_change']]
 
+df_merged['Date'] = pd.to_datetime(df_merged['Date'])
+
+# Select all rows where the date in the 'Date' column is after '2022-01-02'
+df_merged = df_merged.loc[df_merged['Date'] > '2021-11-29']
+df_merged = df_merged.sort_values(by='Date')
 # Write the merged dataframe to a new CSV file
 df_merged.to_csv("merged_file.csv", index=False)
