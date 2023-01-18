@@ -1,5 +1,8 @@
 import pandas as pd
 
+# True if strat should use 2 from each side to long short. False if to take only 1
+USE_TOP_BOTTOM_2 = True
+
 df = pd.read_csv('merged_file.csv')
 
 df['AFRM_adj_1_change_pred'] = df['AFRM_adj_1_change_pred'].ffill()
@@ -12,8 +15,6 @@ df['LC_adj_1_change_pred'] = df['LC_adj_1_change_pred'].ffill()
 df['LC_adj_1_change_pred'] = df['LC_adj_1_change_pred'].bfill()
 df['OPRT_adj_1_change_pred'] = df['OPRT_adj_1_change_pred'].ffill()
 df['OPRT_adj_1_change_pred'] = df['OPRT_adj_1_change_pred'].bfill()
-# TODO: remove this filtering line
-df = df.iloc[300:350]
 
 df['long_gain'] = 0
 df['short_gain'] = 0
@@ -57,8 +58,12 @@ for index, row in df.iterrows():
 
     #creating the strat assuming weights of 0.5 -0.5
     print(index)
-    df.loc[index, 'long_gain'] = 0.5 * (actual[max_key[:-5]])
-    df.loc[index, 'short_gain'] = -0.5 * (actual[min_key[:-5]])
+    if USE_TOP_BOTTOM_2:
+        df.loc[index, 'long_gain'] = 0.25 * (actual[max_key[:-5]]) + 0.25 * (actual[max_2_key[:-5]])
+        df.loc[index, 'short_gain'] = -0.25 * (actual[min_key[:-5]]) - 0.25 * (actual[min_2_key[:-5]])
+    else:
+        df.loc[index, 'long_gain'] = 0.5 * (actual[max_key[:-5]])
+        df.loc[index, 'short_gain'] = -0.5 * (actual[min_key[:-5]])
 
     df.loc[index, 'daily_return'] = df.loc[index, 'long_gain'] + df.loc[index, 'short_gain']
 
