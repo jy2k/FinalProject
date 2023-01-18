@@ -62,7 +62,9 @@ def run_model(stock, dataset, pred_column):
 
     train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
 
-    print('Random Forest Regressor')
+    ## THIS IS WHERE THE MODEL TRAINNING HAPPENS ##
+    # switch the following 3 lines from a different model.
+    # The models are in "additional models.py" file
     from sklearn.ensemble import RandomForestRegressor
     rf = RandomForestRegressor(random_state=42, n_estimators=100)
     rf.fit(train_X, train_y)
