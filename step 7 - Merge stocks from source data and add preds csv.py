@@ -1,3 +1,4 @@
+# This script merges all the original stock data into one big file that has all the stocks.
 import pandas as pd
 list_of_columns = ['Date', 'Adj Close', 'adj_1', 'adj_7', 'adj_30','adj_90', 'adj_1_change', 'adj_7_change', 'adj_30_change','adj_90_change']
 

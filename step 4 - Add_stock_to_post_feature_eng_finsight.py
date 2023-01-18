@@ -1,7 +1,4 @@
-#filter out dates from finsight
-# Add +0 +1 +7 +30 +90
-#Get filtered dates from stock file
-#merge to Finsight source Output data
+# Merges the finsight data (with deltas) to stock (after cohort merge)
 import pandas as pd
 
 

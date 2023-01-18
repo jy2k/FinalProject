@@ -1,3 +1,4 @@
+# This script runs the trading strategy
 import pandas as pd
 
 # True if strat should use 2 from each side to long short. False if to take only 1

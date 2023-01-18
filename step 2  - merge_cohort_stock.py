@@ -1,3 +1,8 @@
+# This file takes cohort files of each stock
+# filters out the required columns (list_of_params)
+# takes the stock data from step 1 and filters out the required columns (stock_column_names)
+# it then merges for each stock both data sources (stock and cohort)
+# In the end it save each cohort+stock under "Output data/Cohort stock/{stock}/file_{i}_benchmark.csv"
 import pandas
 from datetime import datetime
 

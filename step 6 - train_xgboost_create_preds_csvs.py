@@ -1,3 +1,6 @@
+# This script takes the stock+cohort data
+# Trains a model (currently xgboost but see instructions below on how to change line 67)
+# creates prediction files and saves for each stock in stock+'_preds.csv' file
 import pandas as pd
 from sklearn.model_selection import train_test_split
 #https://medium.com/@polanitzer/the-minimum-mean-absolute-error-mae-challenge-928dc081f031

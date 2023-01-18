@@ -1,3 +1,5 @@
+# This script takes the original stocks data
+# it adds all the column such ad adj_x (essentially the rest aren't used)
 import pandas as pd
 
 dict_of_stock_files = {'AFRM': 'stocks source data/AFRM.csv',

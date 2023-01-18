@@ -1,3 +1,5 @@
+# This script takes 1 finsight file at a time and flattens it
+# This file wasn't fully automated with a for loop because it only ever needed to be run once on 5 files.
 import pandas as pd
 
 filename = 'Finsight source data/Finsight data - SoFi_edited_onlyESOT.csv'

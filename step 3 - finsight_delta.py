@@ -1,3 +1,7 @@
+# This script takes the flattened finsight date from step 2
+# It replaces values according to *_dict below so those can be used in regressions
+# it creates the deltas
+# In the end it save the files under Output data/post feature eng/finsight_{stock}_with_deltas.csv
 import pandas as pd
 
 dict_of_finsight_files = {'AFRM': 'Finsight source Output data/Finsight_AFRM_flattened.csv',
