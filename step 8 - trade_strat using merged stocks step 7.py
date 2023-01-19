@@ -2,7 +2,7 @@
 import pandas as pd
 
 # True if strat should use 2 from each side to long short. False if to take only 1
-USE_TOP_BOTTOM_2 = True
+USE_TOP_BOTTOM_2 = False
 
 df = pd.read_csv('merged_file.csv')
 
@@ -20,6 +20,7 @@ df['OPRT_adj_1_change_pred'] = df['OPRT_adj_1_change_pred'].bfill()
 df['long_gain'] = 0
 df['short_gain'] = 0
 df['daily_return'] = 0
+df['daily_return_eventful_days'] = 0
 
 for index, row in df.iterrows():
 
@@ -68,9 +69,20 @@ for index, row in df.iterrows():
 
     df.loc[index, 'daily_return'] = df.loc[index, 'long_gain'] + df.loc[index, 'short_gain']
 
+    # Calculating only trading on days that there's a change
+    try:
+        if df.loc[index, 'AFRM_adj_1_change_pred'] != df.loc[index-1, 'AFRM_adj_1_change_pred'] \
+                or df.loc[index, 'LC_adj_1_change_pred'] != df.loc[index-1, 'LC_adj_1_change_pred'] \
+                or df.loc[index, 'OPRT_adj_1_change_pred'] != df.loc[index-1, 'OPRT_adj_1_change_pred'] \
+                or df.loc[index, 'SOFI_adj_1_change_pred'] != df.loc[index-1, 'SOFI_adj_1_change_pred'] \
+                or df.loc[index, 'UPST_adj_1_change_pred'] != df.loc[index-1, 'UPST_adj_1_change_pred']: #Days without change will have 1 return meaning we do not trade there
+            df.loc[index, 'daily_return_eventful_days'] = df.loc[index, 'daily_return']
+    except: print(f'index equals: {index}')
+
     print('end of one row iteration')
 
 df['compounded_returns'] = (1 + df['daily_return']).cumprod() - 1
+df['compounded_returns_eventful_days'] = (1 + df['daily_return_eventful_days']).cumprod() - 1
 
 import matplotlib.pyplot as plt
 
