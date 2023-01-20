@@ -83,11 +83,37 @@ for index, row in df.iterrows():
 
 df['compounded_returns'] = (1 + df['daily_return']).cumprod() - 1
 df['compounded_returns_eventful_days'] = (1 + df['daily_return_eventful_days']).cumprod() - 1
+df['compounded_bench_returns'] = (1 + df['benchmark_avg_adj_1_change']).cumprod() - 1
 
 import matplotlib.pyplot as plt
 
-df.plot(kind='line', x='Date', y='daily_return', title='Cummulative returns per date')
+df.plot(x='Date', y='daily_return_eventful_days', color='blue')
+df.plot(x='Date', y='daily_return', title='Cummulative returns per date', color='green')
 plt.show()
+# df.to_csv('/Users/eyalben-eliyahu/Desktop/returns test.csv')
+
+###strategy evaluation:
+
+ev_d_ret = df.loc[df['Date'] == '2022-08-15', 'compounded_returns_eventful_days'].values[0]
+all_d_ret = df.loc[df['Date'] == '2022-08-15', 'compounded_returns'].values[0]
+
+ev_d_vector = df.loc[df['daily_return_eventful_days'] != 0, 'daily_return_eventful_days']
+all_d_vector = df.loc[df['Date'] <= '2022-08-15', 'daily_return']
+
+ev_d_std = ev_d_vector.values.std()
+all_d_std = all_d_vector.values.std()
+
+ev_d_sharpe = ev_d_ret / ev_d_std
+all_d_sharpe = all_d_ret / all_d_std
+
+ev_d_num_of_trades = len(ev_d_vector)
+all_d_num_of_trades = len(all_d_vector)
+
+
+
+
+
+
 
 print('end')
 
