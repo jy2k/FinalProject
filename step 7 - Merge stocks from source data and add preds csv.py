@@ -1,9 +1,9 @@
 # This script merges all the original stock data into one big file that has all the stocks.
 import pandas as pd
-list_of_columns = ['Date', 'Adj Close', 'adj_1', 'adj_7', 'adj_30','adj_90', 'adj_1_change', 'adj_7_change', 'adj_30_change','adj_90_change']
+list_of_columns = ['Date', 'Adj Close', 'adj_1', 'adj_7', 'adj_30','adj_90', 'adj_1_change', 'adj_7_change', 'adj_30_change','adj_90_change', 'avg_adj_1_change']
 
 stock='AFRM'
-list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change']
+list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change', f'{stock}_avg_adj_1_change']
 
 # Load the first CSV file into a DataFrame
 df1 = pd.read_csv('stocks source data/AFRM.csv')
@@ -15,7 +15,7 @@ df1 = df1[list_of_columns]
 df1.columns = list_of_new_cols
 
 stock='LC'
-list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change']
+list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change', f'{stock}_avg_adj_1_change']
 
 # Load the second CSV file into a DataFrame
 df2 = pd.read_csv('stocks source data/LC.csv')
@@ -28,7 +28,7 @@ df2.columns = list_of_new_cols
 
 
 stock='OPRT'
-list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change']
+list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change', f'{stock}_avg_adj_1_change']
 
 # Load the third CSV file into a DataFrame
 df3 = pd.read_csv('stocks source data/OPRT.csv')
@@ -40,7 +40,7 @@ df3 = df3[list_of_columns]
 df3.columns = list_of_new_cols
 
 stock='SOFI'
-list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change']
+list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change', f'{stock}_avg_adj_1_change']
 
 
 # Load the fourth CSV file into a DataFrame
@@ -54,7 +54,7 @@ df4.columns = list_of_new_cols
 
 
 stock='UPST'
-list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change']
+list_of_new_cols = ['Date', f'{stock}_Adj Close', f'{stock}_adj_1', f'{stock}_adj_7', f'{stock}_adj_30','adj_90', f'{stock}_adj_1_change', f'{stock}_adj_7_change', f'{stock}_adj_30_change',f'{stock}_adj_90_change', f'{stock}_avg_adj_1_change']
 
 
 # Load the fifth CSV file into a DataFrame
@@ -93,7 +93,9 @@ for stock in stock_list:
 
     df_merged = pd.merge(df_current_stock, df_merged, on="Date", how="right")
     print("test")
-df_merged = df_merged[['Date','UPST_adj_1_change_pred', 'SOFI_adj_1_change_pred', 'OPRT_adj_1_change_pred', 'LC_adj_1_change_pred', 'AFRM_adj_1_change_pred', 'AFRM_adj_1_change', 'LC_adj_1_change', 'OPRT_adj_1_change', 'SOFI_adj_1_change', 'UPST_adj_1_change']]
+df_merged = df_merged[['Date','UPST_adj_1_change_pred', 'SOFI_adj_1_change_pred', 'OPRT_adj_1_change_pred', 'LC_adj_1_change_pred', 'AFRM_adj_1_change_pred', 'AFRM_adj_1_change', 'LC_adj_1_change', 'OPRT_adj_1_change', 'SOFI_adj_1_change', 'UPST_adj_1_change', 'AFRM_avg_adj_1_change']]
+
+df_merged = df_merged.rename(columns={'AFRM_avg_adj_1_change': 'benchmark_avg_adj_1_change'})
 
 df_merged['Date'] = pd.to_datetime(df_merged['Date'])
 
