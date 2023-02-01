@@ -23,6 +23,12 @@ for stock, file in dict_of_stock_files.items():
     df_stock['adj_30'] = df_stock['Adj Close'].shift(-22)
     df_stock['adj_90'] = df_stock['Adj Close'].shift(-66)
     df_stock = df_stock[df_stock.columns.drop(list(df_stock.filter(regex='Unnamed*')))]
+
+    df_stock['adj_1_change'] = (df_stock['adj_1']/df_stock['Adj Close'])-1
+    df_stock['adj_7_change'] = (df_stock['adj_7']/df_stock['Adj Close'])-1
+    df_stock['adj_30_change'] = (df_stock['adj_30']/df_stock['Adj Close'])-1
+    df_stock['adj_90_change'] = (df_stock['adj_90']/df_stock['Adj Close'])-1
+
     df_stock['d1_Vol'] = df_stock['adj_1_change'] ** 2
     df_stock['d7_Vol'] = df_stock['adj_7_change'] ** 2
     df_stock['d30_Vol'] = df_stock['adj_30_change'] ** 2
