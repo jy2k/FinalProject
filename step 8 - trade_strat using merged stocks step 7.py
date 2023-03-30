@@ -96,19 +96,23 @@ import matplotlib.pyplot as plt
 
 ev_d_ret = df.loc[df['Date'] == '2022-11-23', 'compounded_returns_eventful_days'].values[0]
 all_d_ret = df.loc[df['Date'] == '2022-11-23', 'compounded_returns'].values[0]
-bench_ret = df.loc[df['Date'] == '2022-11-23', 'compounded_bench_returns'].values[0]
+benchmark_ret = df.loc[df['Date'] == '2022-11-23', 'compounded_bench_returns'].values[0]
 
 ev_d_vector = df.loc[df['daily_return_eventful_days'] != 0, 'daily_return_eventful_days']
-all_d_vector = df.loc[df['Date'] <= '2022-08-15', 'daily_return']
+all_d_vector = df.loc[df['Date'] <= '2022-11-23', 'daily_return']
+benchmark_vector = df.loc[df['Date'] <= '2022-11-23', 'benchmark_avg_adj_1_change']
 
 ev_d_std = ev_d_vector.values.std()
 all_d_std = all_d_vector.values.std()
+benchmark_std = benchmark_vector.values.std()
 
 ev_d_sharpe = ev_d_ret / ev_d_std
 all_d_sharpe = all_d_ret / all_d_std
+benchmark_sharpe = benchmark_ret / benchmark_std
 
 ev_d_num_of_trades = len(ev_d_vector)
 all_d_num_of_trades = len(all_d_vector)
+benchmark_num_of_trades = len(benchmark_vector)
 
 
 df['compounded_returns_eventful_days'].plot(label="eventful_days", color="green", xlabel = 'days', ylabel = 'compounded returns')
@@ -116,10 +120,17 @@ df['compounded_returns'].plot(label="every_day", color="blue")
 df['compounded_bench_returns'].plot(label="benchmark", color="grey")
 plt.text(250, 0.37, f"{round(ev_d_ret,3) * 100}%", color = "green")
 plt.text(250, 0, f"{round(all_d_ret,3) * 100}%", color = "blue")
-plt.text(250, -0.7, f"{round(bench_ret,3) * 100}%", color = "grey")
+plt.text(250, -0.7, f"{round(benchmark_ret,3) * 100}%", color = "grey")
 plt.legend()
 plt.show()
 
+def strategy_evaluation(ret, std, trades_vector, name):
+    ##soratino_ratio =
+    print(f"Strategy evaluation for {name}: Total return: {round(ret,3)} | Volatility: {round(std,3)} | Sharpe ratio: {round(ret/std,3)} | number of trades: {len(trades_vector)}, Best Day: {round(max(trades_vector),3)}, Worst Day {round(min(trades_vector),3)}")
+
+strategy_evaluation(ev_d_ret, ev_d_std, ev_d_vector, "Eventful" )
+strategy_evaluation(all_d_ret, all_d_std, all_d_vector, "Everyday" )
+strategy_evaluation(benchmark_ret, benchmark_std, benchmark_vector, "Benchmark" )
 
 
 
