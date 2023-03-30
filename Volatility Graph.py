@@ -1,15 +1,5 @@
-import pandas as pd
-import statsmodels.formula.api as sm
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
-import statsmodels.formula.api as smf
-from statsmodels.compat import lzip
-import numpy as np
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
-from statsmodels.formula.api import ols
-import matplotlib.dates as mdates
-
+import pandas as pd
 
 ### Gather all stock data ###
 
