@@ -50,15 +50,15 @@ for index, row in df.iterrows():
 
     sorted_d = sorted(predicted.items(), key=lambda x: x[1])
 
-    #get 2 max
+    # get 2 max
     max_key = sorted_d[-1][0]
     max_2_key = sorted_d[-2][0]
 
-    #get 2 min
+    # get 2 min
     min_key = sorted_d[0][0]
     min_2_key = sorted_d[1][0]
 
-    #creating the strat assuming weights of 0.5 -0.5
+    # creating the strat assuming weights of 0.5 -0.5
     print(index)
     if USE_TOP_BOTTOM_2:
         df.loc[index, 'long_gain'] = 0.25 * (actual[max_key[:-5]]) + 0.25 * (actual[max_2_key[:-5]])
@@ -71,13 +71,15 @@ for index, row in df.iterrows():
 
     # Calculating only trading on days that there's a change
     try:
-        if df.loc[index, 'AFRM_adj_1_change_pred'] != df.loc[index-1, 'AFRM_adj_1_change_pred'] \
-                or df.loc[index, 'LC_adj_1_change_pred'] != df.loc[index-1, 'LC_adj_1_change_pred'] \
-                or df.loc[index, 'OPRT_adj_1_change_pred'] != df.loc[index-1, 'OPRT_adj_1_change_pred'] \
-                or df.loc[index, 'SOFI_adj_1_change_pred'] != df.loc[index-1, 'SOFI_adj_1_change_pred'] \
-                or df.loc[index, 'UPST_adj_1_change_pred'] != df.loc[index-1, 'UPST_adj_1_change_pred']: #Days without change will have 1 return meaning we do not trade there
+        if df.loc[index, 'AFRM_adj_1_change_pred'] != df.loc[index - 1, 'AFRM_adj_1_change_pred'] \
+                or df.loc[index, 'LC_adj_1_change_pred'] != df.loc[index - 1, 'LC_adj_1_change_pred'] \
+                or df.loc[index, 'OPRT_adj_1_change_pred'] != df.loc[index - 1, 'OPRT_adj_1_change_pred'] \
+                or df.loc[index, 'SOFI_adj_1_change_pred'] != df.loc[index - 1, 'SOFI_adj_1_change_pred'] \
+                or df.loc[index, 'UPST_adj_1_change_pred'] != df.loc[
+            index - 1, 'UPST_adj_1_change_pred']:  # Days without change will have 1 return meaning we do not trade there
             df.loc[index, 'daily_return_eventful_days'] = df.loc[index, 'daily_return']
-    except: print(f'index equals: {index}')
+    except:
+        print(f'index equals: {index}')
 
     print('end of one row iteration')
 
@@ -114,37 +116,33 @@ ev_d_num_of_trades = len(ev_d_vector)
 all_d_num_of_trades = len(all_d_vector)
 benchmark_num_of_trades = len(benchmark_vector)
 
+ev_d_annualized_ret_efficient = (1 + ev_d_ret)**(365/ev_d_num_of_trades) - 1 ## This assumes max efficiency in trading and capital, becasue it assumes other usage of capital in days not trading
+ev_d_annualized_ret = (1 + ev_d_ret)**(365/benchmark_num_of_trades) - 1
+all_d_annualized_ret = (1 + all_d_ret)**(365/all_d_num_of_trades) - 1
+benchmark_annualized_ret = (1 + benchmark_ret)**(365/benchmark_num_of_trades) - 1
 
-df['compounded_returns_eventful_days'].plot(label="eventful_days", color="green", xlabel = 'days', ylabel = 'compounded returns')
+
+
+df['compounded_returns_eventful_days'].plot(label="eventful_days", color="green", xlabel='days',
+                                            ylabel='compounded returns')
 df['compounded_returns'].plot(label="every_day", color="blue")
 df['compounded_bench_returns'].plot(label="benchmark", color="grey")
-plt.text(250, 0.37, f"{round(ev_d_ret,3) * 100}%", color = "green")
-plt.text(250, 0, f"{round(all_d_ret,3) * 100}%", color = "blue")
-plt.text(250, -0.7, f"{round(benchmark_ret,3) * 100}%", color = "grey")
+plt.text(250, 0.37, f"{round(ev_d_ret, 3) * 100}%", color="green")
+plt.text(250, 0, f"{round(all_d_ret, 3) * 100}%", color="blue")
+plt.text(250, -0.7, f"{round(benchmark_ret, 3) * 100}%", color="grey")
 plt.legend()
 plt.show()
 
-def strategy_evaluation(ret, std, trades_vector, name):
+
+def strategy_evaluation(ret, std, trades_vector, annualized_return, annualized_return_efficient, name):
     ##soratino_ratio =
-    print(f"Strategy evaluation for {name}: Total return: {round(ret,3)} | Volatility: {round(std,3)} | Sharpe ratio: {round(ret/std,3)} | number of trades: {len(trades_vector)}, Best Day: {round(max(trades_vector),3)}, Worst Day {round(min(trades_vector),3)}")
-
-strategy_evaluation(ev_d_ret, ev_d_std, ev_d_vector, "Eventful  " )
-strategy_evaluation(all_d_ret, all_d_std, all_d_vector, "Everyday " )
-strategy_evaluation(benchmark_ret, benchmark_std, benchmark_vector, "Benchmark" )
+    print(
+        f"Strategy evaluation for {name}: Tot Return: {round(ret, 3)} | Annualized Return: {round(annualized_return,3)} | Annualized Return Efficient: {round(annualized_return_efficient,3)} | Volatility: {round(std, 3)} | Sharpe: {round(ret / std, 3)} | # trades: {len(trades_vector)} | Best Day: {round(max(trades_vector), 3)} | Worst Day {round(min(trades_vector), 3)}")
 
 
 
+strategy_evaluation(ev_d_ret, ev_d_std, ev_d_vector, ev_d_annualized_ret, ev_d_annualized_ret_efficient, "Eventful ")
+strategy_evaluation(all_d_ret, all_d_std, all_d_vector,all_d_annualized_ret , all_d_annualized_ret, "Everyday ")
+strategy_evaluation(benchmark_ret, benchmark_std, benchmark_vector, benchmark_annualized_ret,benchmark_annualized_ret , "Benchmark")
 
 print('end')
-
-
-
-
-
-
-
-
-
-
-
-
