@@ -128,8 +128,8 @@ def strategy_evaluation(ret, std, trades_vector, name):
     ##soratino_ratio =
     print(f"Strategy evaluation for {name}: Total return: {round(ret,3)} | Volatility: {round(std,3)} | Sharpe ratio: {round(ret/std,3)} | number of trades: {len(trades_vector)}, Best Day: {round(max(trades_vector),3)}, Worst Day {round(min(trades_vector),3)}")
 
-strategy_evaluation(ev_d_ret, ev_d_std, ev_d_vector, "Eventful" )
-strategy_evaluation(all_d_ret, all_d_std, all_d_vector, "Everyday" )
+strategy_evaluation(ev_d_ret, ev_d_std, ev_d_vector, "Eventful  " )
+strategy_evaluation(all_d_ret, all_d_std, all_d_vector, "Everyday " )
 strategy_evaluation(benchmark_ret, benchmark_std, benchmark_vector, "Benchmark" )
 
 
