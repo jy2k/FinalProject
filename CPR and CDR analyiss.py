@@ -30,4 +30,5 @@ for i in ticker_list:
 ## To Do:
 ## Plot all the graphs, per feature, in one plot. Look for 'subplot' in matplot lib
 ## Plot also the result of (Annualized Net Loss Rate - Gross Coupon)
+## Can find elegant way to subplot also the "Volatility graphs?"
 
