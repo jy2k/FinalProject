@@ -1,5 +1,7 @@
 # This script runs the trading strategy
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # True if strat should use 2 from each side to long short. False if to take only 1
 USE_TOP_BOTTOM_2 = False
@@ -87,13 +89,6 @@ df['compounded_returns'] = (1 + df['daily_return']).cumprod() - 1
 df['compounded_returns_eventful_days'] = (1 + df['daily_return_eventful_days']).cumprod() - 1
 df['compounded_bench_returns'] = (1 + df['benchmark_avg_adj_1_change']).cumprod() - 1
 
-import matplotlib.pyplot as plt
-
-# df.plot(x='Date', y='daily_return_eventful_days', color='blue')
-# df.plot(x='Date', y='daily_return', title='Cummulative returns per date', color='green')
-# plt.show()
-# df.to_csv('/Users/eyalben-eliyahu/Desktop/returns test.csv')
-
 ###strategy evaluation:
 
 ev_d_ret = df.loc[df['Date'] == '2022-11-23', 'compounded_returns_eventful_days'].values[0]
@@ -127,9 +122,9 @@ df['compounded_returns_eventful_days'].plot(label="eventful_days", color="green"
                                             ylabel='compounded returns')
 df['compounded_returns'].plot(label="every_day", color="blue")
 df['compounded_bench_returns'].plot(label="benchmark", color="grey")
-plt.text(250, 0.37, f"{round(ev_d_ret, 3) * 100}%", color="green")
-plt.text(250, 0, f"{round(all_d_ret, 3) * 100}%", color="blue")
-plt.text(250, -0.7, f"{round(benchmark_ret, 3) * 100}%", color="grey")
+plt.text(150, 0.37, f"Return :{round(ev_d_ret, 2) * 100}%, Sharpe: {round(ev_d_sharpe,2)}", color="green")
+plt.text(150, 0, f"Return :{round(all_d_ret, 2) * 100}%, Sharpe: {round(all_d_sharpe,2)}", color="blue")
+plt.text(150, -0.55, f"Return :{round(benchmark_ret, 2) * 100}%, Sharpe: {round(benchmark_sharpe,2)}", color="grey")
 plt.legend()
 plt.show()
 
