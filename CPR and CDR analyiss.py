@@ -5,7 +5,7 @@ import os
 ticker_list = ["AFRM","LC","OPRT","SOFI","UPST"]
 
 def plot_features_per_issuer(ticker, feature):
-    directory = f"C:/Users/Shamgar/PycharmProjects/FinalProject/Output data/cohort stock/{ticker}"
+    directory = f"Output data/cohort stock/{ticker}"
     list_of_abss = []
     for filename in os.scandir(directory):
         if (filename.is_file()) and ("bench" in str(filename)):

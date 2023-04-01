@@ -61,7 +61,7 @@ def run_model(stock, dataset, pred_column):
     if stock == 'OPRT':
         X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR']].astype('float')
     else:
-        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float')
+        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float') ### Here we define the X variables of the predictions
 
     train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
 
@@ -92,7 +92,7 @@ for stock , files in dict_of_stock_files.items():
     dataset = add_columns(dataset)
     dataset.dropna(axis=0, inplace=True)
 
-    for pred_column in ['adj_1_change']:
+    for pred_column in ['adj_1_change']: ### The Y in our models is the string here, in this case "adj 1 change"
         interim = run_model(stock, dataset, pred_column)
         #results = results.merge(interim, left_on='Model', right_on='Model')
 
