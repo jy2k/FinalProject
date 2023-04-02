@@ -59,9 +59,9 @@ def run_model(stock, dataset, pred_column):
     interim = pd.DataFrame(columns=['Model', pred_column])
     y = dataset[pred_column].astype('float')
     if stock == 'OPRT':
-        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR']].astype('float')
+        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Gross_Coupon_Minus_Annualized_Net_Loss_Rate']].astype('float')
     else:
-        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR']].astype('float') ### Here we define the X variables of the predictions
+        X = dataset[['Annualized_Net_Loss_Rate', 'Life_CDR', 'Life_CPR', 'Gross_Coupon_Minus_Annualized_Net_Loss_Rate']].astype('float')
 
     train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.1)
 
