@@ -1,10 +1,12 @@
 # This script runs the trading strategy
 import pandas as pd
 import matplotlib.pyplot as plt
+import random
 
 
 # True if strat should use 2 from each side to long short. False if to take only 1
 USE_TOP_BOTTOM_2 = False
+RANDOM_STRAT = True
 
 df = pd.read_csv('merged_file.csv')
 
@@ -49,8 +51,11 @@ for index, row in df.iterrows():
 
         'UPST_adj_1_change_pred': row['UPST_adj_1_change_pred'],
     }
-
-    sorted_d = sorted(predicted.items(), key=lambda x: x[1])
+    if RANDOM_STRAT:
+        sorted_d = sorted(predicted.items(), key=lambda x: x[1])
+        random.shuffle(sorted_d)
+    else:
+        sorted_d = sorted(predicted.items(), key=lambda x: x[1])
 
     # get 2 max
     max_key = sorted_d[-1][0]
@@ -68,6 +73,7 @@ for index, row in df.iterrows():
     else:
         df.loc[index, 'long_gain'] = 0.5 * (actual[max_key[:-5]])
         df.loc[index, 'short_gain'] = -0.5 * (actual[min_key[:-5]])
+
 
     df.loc[index, 'daily_return'] = df.loc[index, 'long_gain'] + df.loc[index, 'short_gain']
 
