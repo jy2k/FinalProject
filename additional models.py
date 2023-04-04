@@ -117,7 +117,7 @@ linreg = LinearRegression()
 linreg.fit(train_X, train_y)
 ypred = linreg.predict(test_X)
 l1 = mean_absolute_error(test_y, ypred)
-print('Mean MAE: %.3f' % l1
-      )
+print('Mean MAE: %.3f' % l1)
+
 list_row = ['Linear Regression', l1]
 interim.loc[len(interim)] = list_row

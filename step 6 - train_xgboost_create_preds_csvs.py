@@ -72,6 +72,24 @@ def run_model(stock, dataset, pred_column):
     rf = RandomForestRegressor(random_state=42, n_estimators=100)
     rf.fit(train_X, train_y)
 
+    from sklearn.linear_model import LinearRegression
+    from sklearn.metrics import mean_absolute_error
+
+    linreg = LinearRegression()
+    linreg.fit(train_X, train_y)
+    ypred = linreg.predict(test_X)
+    l1 = mean_absolute_error(test_y, ypred)
+    print(f'{stock} Mean Linear regression MAE: %.3f' % l1)
+
+    import statsmodels.formula.api as smf
+    new_df = train_X
+    new_df[pred_column] = train_y
+    if stock == 'OPRT':
+        results = smf.ols(f'{pred_column} ~ Annualized_Net_Loss_Rate + Life_CDR + Gross_Coupon_Minus_Annualized_Net_Loss_Rate', data=new_df).fit()
+    else:
+        results = smf.ols(f'{pred_column} ~ Annualized_Net_Loss_Rate + Life_CDR + Life_CPR + Gross_Coupon_Minus_Annualized_Net_Loss_Rate', data=new_df).fit()
+
+    print(f'{stock}:\n' + str(results.summary()))
     add_columns_with_predictions(stock, rf,pred_column, dataset[['Date']], X)
 
     return interim
