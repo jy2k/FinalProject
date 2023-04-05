@@ -97,10 +97,14 @@ def run_model(stock, dataset, pred_column):
 
 # results = run_model('adj_1_change')
 # results = results.drop('adj_1_change', axis=1)
+mega_dataset = pd.DataFrame()
 
 for stock , files in dict_of_stock_files.items():
 
     dataset = pd.concat(files, ignore_index=True, sort=False)
+
+    frames = [mega_dataset, dataset]
+    mega_dataset = pd.concat(frames, ignore_index=True, sort=False)
 
     dataset['Date'] = pd.to_datetime(dataset['Date'])
     grouped = dataset.groupby(dataset['Date'])
@@ -114,6 +118,18 @@ for stock , files in dict_of_stock_files.items():
         interim = run_model(stock, dataset, pred_column)
         #results = results.merge(interim, left_on='Model', right_on='Model')
 
+
+#handle the megaDataset
+print('Mega dataset')
+mega_dataset['Date'] = pd.to_datetime(mega_dataset['Date'])
+grouped = mega_dataset.groupby(mega_dataset['Date'])
+# Calculate the average of the value column for each group
+mega_dataset = grouped.mean()
+mega_dataset = mega_dataset.reset_index()
+mega_dataset = add_columns(mega_dataset)
+mega_dataset.dropna(axis=0, inplace=True)
+run_model('mega', mega_dataset, 'adj_1_change')
+print('end')
 # print(results)
 #
 # import seaborn as sns
