@@ -71,6 +71,10 @@ def run_model(stock, dataset, pred_column):
     from sklearn.ensemble import RandomForestRegressor
     rf = RandomForestRegressor(random_state=42, n_estimators=100)
     rf.fit(train_X, train_y)
+    print('feature importance: ')
+    print(str(rf.feature_names_in_))
+    print(str(rf.feature_importances_))
+
 
     from sklearn.linear_model import LinearRegression
     from sklearn.metrics import mean_absolute_error
